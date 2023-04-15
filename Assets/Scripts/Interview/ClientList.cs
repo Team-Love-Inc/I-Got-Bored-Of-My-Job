@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ClientList : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public TextMeshProUGUI text;
+
     void Start()
     {
-        
-    }
+        GameObject buttonTemplate = transform.GetChild(0).gameObject;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        for (int i = 0; i < 5; i++)
+        {
+            text.text = "Client: " + i.ToString();
+           Instantiate(buttonTemplate, transform);
+        }
+
+        Destroy(buttonTemplate);
     }
 }
