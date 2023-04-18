@@ -5,30 +5,24 @@ using UnityEngine.UIElements;
 
 public class MainInterview : MonoBehaviour
 {
-    //UI references
-    public GameObject panel;
+    ////UI references
+    //public GameObject panel;
 
+    //void HideClientList()
+    //{
+    //    if (panel.activeSelf)
+    //    {
+    //        panel.SetActive(false);
+    //    }
+    //    else
+    //    {
+    //        panel.SetActive(true);
+    //    }
+    //}
 
-    void Start()
-    {
-        HideClientList();
-    }
-
-    void HideClientList()
-    {
-        if (panel.activeSelf)
-        {
-            panel.SetActive(false);
-        }
-        else
-        {
-            panel.SetActive(true);
-        }
-    }
-
-    public void BtnPressed()
-    {
-        HideClientList();
-        //panel.SetActive(true);
-    }
+    //public void BtnPressed()
+    //{
+    //    HideClientList();
+    //    //panel.SetActive(true);
+    //}
 }

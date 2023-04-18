@@ -5,7 +5,7 @@ public class ClientList : MonoBehaviour
 {
     public TextMeshProUGUI text;
 
-    void Start()
+    public void CreateButtons()
     {
         GameObject buttonTemplate = transform.GetChild(0).gameObject;
 
