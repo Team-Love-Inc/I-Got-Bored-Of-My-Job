@@ -1,46 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public abstract class Stage : MonoBehaviour
+public class Stage : MonoBehaviour
 {
     [SerializeField]
-    public EntryPoint PlayableContent;
+    public EntryPointStorage PlayableContent;
     [SerializeField]
-    public List<Stage> innerStages;
-    protected List<Stage> outerStages;
-    //protected Stage pickedOuterStage;
+    private int StartContent;
+    [SerializeField]
+    public Controller controller;
+    protected StageStorage Stages;
 
-    public void StartStage(List<Stage> outerStages)
+    public void StartStage(StageStorage Stages)
     {
-        this.outerStages = outerStages;
-        PlayableContent.Play(innerStages);
-        //var nextInternalStage = PlayableContent.GetNextInnerStage();
-        //while(nextInternalStage != null)
-        //{
-        //    nextInternalStage.StartStage(innerStages);
-        //    nextInternalStage = nextInternalStage.GetOuterStage();
-        //}
-        //
+        this.Stages = Stages;
+        NextContent(StartContent);
     }
 
-    public Stage Continue()
+    public void NextContent(int contentNumber)
     {
-        if(PlayableContent.finished)
+        Content content;
+        var found = PlayableContent.TryGetValue(contentNumber, out content);
+        if (found)
         {
-            var nextInternalStage = PlayableContent.Stop();
-            if(nextInternalStage is not null)
-            {
-                nextInternalStage.StartStage(innerStages);
-            } 
-            else
-            {
-                return PickOuterStage();
-            }
+            content.Play(this);
         }
-        return null;
+        else
+        {
+            Debug.Log(new System.Exception("Stages: NextContent " + contentNumber + " content not found"));
+        }
     }
 
-    public abstract int GetName();
-    protected abstract Stage PickOuterStage();
+    public void NextStage(StageNames Name)
+    {
+        controller.NextStage(Name);
+    }
 }
+
+[Serializable]
+public class StageStorage : SerializableDictionary<StageNames, Stage> { }

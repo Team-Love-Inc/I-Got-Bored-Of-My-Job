@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InterviewContent : EntryPoint
+public class InterviewContentOne : Content
 {
     public GameObject panel;
     public ClientList clientList;
 
     protected override void StartContent()
     {
+        //panel.gameObject.SetActive(true);
         clientList.CreateButtons();
         HideClientList();
     }
@@ -28,11 +29,6 @@ public class InterviewContent : EntryPoint
     public void BtnPressed()
     {
         HideClientList();
-        finished = true;
-    }
-
-    protected override Stage GetNextInnerStage()
-    {
-        return innerStages.Find(x => x.GetName() == (int)Interview.Names.TWO);
+        Stop(1);
     }
 }
