@@ -9,26 +9,30 @@ public class InterviewContentOne : Content
 
     protected override void StartContent()
     {
-        //panel.gameObject.SetActive(true);
         clientList.CreateButtons();
-        HideClientList();
+        HideClientList(panel);
     }
 
-    void HideClientList()
+    void HideClientList(GameObject gameObj)
     {
-        if (panel.activeSelf)
+        if (gameObj.activeSelf)
         {
-            panel.SetActive(false);
+            gameObj.SetActive(false);
         }
         else
         {
-            panel.SetActive(true);
+            gameObj.SetActive(true);
         }
+    }
+
+    public void ClientListBtn()
+    {
+        HideClientList(panel);
     }
 
     public void BtnPressed()
     {
-        HideClientList();
+        HideClientList(panel);
         Stop(1);
     }
 }
