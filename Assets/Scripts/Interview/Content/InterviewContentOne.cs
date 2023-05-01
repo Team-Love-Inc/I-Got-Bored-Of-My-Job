@@ -5,11 +5,9 @@ using UnityEngine;
 public class InterviewContentOne : Content
 {
     public GameObject panel;
-    public ClientList clientList;
 
     protected override void StartContent()
     {
-        clientList.CreateButtons();
         HideClientList(panel);
     }
 
