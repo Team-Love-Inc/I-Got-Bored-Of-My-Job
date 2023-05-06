@@ -1,36 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class InterviewContentOne : Content
 {
-    public GameObject panel;
 
     protected override void StartContent()
     {
-        HideClientList(panel);
-    }
-
-    void HideClientList(GameObject gameObj)
-    {
-        if (gameObj.activeSelf)
-        {
-            gameObj.SetActive(false);
-        }
-        else
-        {
-            gameObj.SetActive(true);
-        }
+        //Utilities.HideClientList(panel);
     }
 
     public void ClientListBtn()
     {
-        HideClientList(panel);
+        //Utilities.HideClientList(panel);
     }
 
     public void BtnPressed()
     {
-        HideClientList(panel);
         Stop(1);
     }
 }

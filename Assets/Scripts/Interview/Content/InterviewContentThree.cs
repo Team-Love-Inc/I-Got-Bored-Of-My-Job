@@ -6,7 +6,7 @@ public class InterviewContentThree : Content
 {
     protected override void StartContent()
     {
-    
+        
     }
 
     public void BtnPressed()
