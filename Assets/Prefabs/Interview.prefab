@@ -888,6 +888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6424064620804693743}
   - component: {fileID: 7094886583222770163}
+  - component: {fileID: 9075419554655342007}
   m_Layer: 0
   m_Name: Two
   m_TagString: Untagged
@@ -925,11 +926,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5881547de91619e47b3d9a5b60eb6d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSONAsset: {fileID: 4900000, guid: 735881b0001f83b44a35d1a4d0455d06, type: 3}
   StoryCanvas: {fileID: 8209548077632286918}
   PreparationCanvas: {fileID: 5644170054710063500}
-  textPrefab: {fileID: 11456674, guid: 1aab6ef84d87c416f8f0b3e1ef3d77d2, type: 3}
-  buttonPrefab: {fileID: 11455116, guid: 37c108a6c38964f79a6621eccb33ddc1, type: 3}
+  numberOfQuestions: 3
+  conversation: {fileID: 9075419554655342007}
+--- !u!114 &9075419554655342007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102020881676840048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a765cc23b68f7c74a895921ffd85373c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJSONAsset: {fileID: 4900000, guid: 735881b0001f83b44a35d1a4d0455d06, type: 3}
+  textPrefab: {fileID: 11456674, guid: 9d3c534f265e3c849ad406fb92ec7089, type: 3}
+  buttonPrefab: {fileID: 11455116, guid: dc2a405844df001459c5e0d4730cc8c5, type: 3}
 --- !u!1 &2172192187108260795
 GameObject:
   m_ObjectHideFlags: 0
