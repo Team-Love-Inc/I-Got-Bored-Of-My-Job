@@ -20,7 +20,7 @@ public class ClientList : MonoBehaviour
 
         foreach (var match in Matches)
         {
-            text.text = match.Name + "/n" + match.Age;
+            text.text = match.Description;
             Instantiate(buttonTemplate, transform);
         }
 
