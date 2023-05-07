@@ -171,8 +171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 84.78543, y: -25}
-  m_SizeDelta: {x: 149.57086, y: 30}
+  m_AnchoredPosition: {x: 81.54144, y: -25}
+  m_SizeDelta: {x: 143.08289, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4092875354840648933
 CanvasRenderer:
@@ -779,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7121260460173897370
 RectTransform:
   m_ObjectHideFlags: 0
@@ -878,6 +878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 547738199495836080}
+  Matches: []
 --- !u!1 &2102020881676840048
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +946,7 @@ MonoBehaviour:
   inkJSONAsset: {fileID: 4900000, guid: 735881b0001f83b44a35d1a4d0455d06, type: 3}
   textPrefab: {fileID: 11456674, guid: 9d3c534f265e3c849ad406fb92ec7089, type: 3}
   buttonPrefab: {fileID: 11455116, guid: dc2a405844df001459c5e0d4730cc8c5, type: 3}
+  numberOfButtons: 0
 --- !u!1 &2172192187108260795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1734,8 +1736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eed3bb8b6ae1b24ab0d319a1a4dd19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1786279136920935540}
-  clientList: {fileID: 6693529023601819083}
 --- !u!1 &5989633056317698627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,7 +2023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1879671724499342716
 RectTransform:
   m_ObjectHideFlags: 0
