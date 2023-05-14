@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using UnityEngine;
 
 public class Stage : MonoBehaviour
 {
@@ -29,7 +27,7 @@ public class Stage : MonoBehaviour
         }
         else
         {
-            Debug.Log(new System.Exception("Stages: NextContent " + contentNumber + " content not found"));
+            Debug.Log(new Exception("Stages: NextContent " + contentNumber + " content not found"));
         }
     }
 

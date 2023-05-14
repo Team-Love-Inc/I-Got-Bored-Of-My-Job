@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b5026e70b5c9d42bcf8c0414287591, type: 3}
+  m_Name: Geriol
+  m_EditorClassIdentifier: 
+  id: 4
+  matchName: Geriol Highleaf
+  age: 0
+  picture: {fileID: 21300000, guid: 6cf369ca86032824b9b0aea1c4bfcc00, type: 3}
+  description: "Geriol lived in a closed off community along the longest river in
+    the country were 90% of the population were Frog-Men. He lived in a lovefilled
+    family and tight-knit neighborhood where Frog-Man tradition is held strongly
+    and their diet almost consist of bugs and flies from nature, especially flies
+    being almost like catnip.\r\n\r\nGeriol always had a thing for trinkets and math,
+    things not very associated in his community. With the recent boost of computer
+    technology he took a big gambled - He applied for a university in the big city
+    and got accepted! Leaving everything he knew for the new and wider world.\r\n\r\n2
+    years in though and he still haven\u2019t acclimated with his environment. The
+    Frog-Man tradition and bug eating habit is giving other people a weird look,
+    so he has tried to suppress those habits.\r\nStill, he barely has any friends
+    and is spending most of his time working and studying at home. It changed when
+    he looked himself in the mirror one day and noticed a wrinkle, a sign of his
+    life advancing but with barely any real life experience to show for it. Now he
+    really want to change that for real - He is going to get out there! Find experiences
+    and even some LOVE!\r\n\r\nHopefully a fly won\u2019t fly near him that he can\u2019t
+    resist.\r\n\nGeriol lived in a closed off community along the longest river in
+    the country were 90% of the population were Frog-Men. He lived in a lovefilled
+    family and tight-knit neighborhood where Frog-Man tradition is held strongly
+    and their diet almost consist of bugs and flies from nature, especially flies
+    being almost like catnip.\r\n\r\nGeriol always had a thing for trinkets and math,
+    things not very associated in his community. With the recent boost of computer
+    technology he took a big gambled - He applied for a university in the big city
+    and got accepted! Leaving everything he knew for the new and wider world.\r\n\r\n2
+    years in though and he still haven\u2019t acclimated with his environment. The
+    Frog-Man tradition and bug eating habit is giving other people a weird look,
+    so he has tried to suppress those habits.\r\nStill, he barely has any friends
+    and is spending most of his time working and studying at home. It changed when
+    he looked himself in the mirror one day and noticed a wrinkle, a sign of his
+    life advancing but with barely any real life experience to show for it. Now he
+    really want to change that for real - He is going to get out there! Find experiences
+    and even some LOVE!\r\n\r\nHopefully a fly won\u2019t fly near him that he can\u2019t
+    resist.\r\n\nGeriol lived in a closed off community along the longest river in
+    the country were 90% of the population were Frog-Men. He lived in a lovefilled
+    family and tight-knit neighborhood where Frog-Man tradition is held strongly
+    and their diet almost consist of bugs and flies from nature, especially flies
+    being almost like catnip.\r\n\r\nGeriol always had a thing for trinkets and math,
+    things not very associated in his community. With the recent boost of computer
+    technology he took a big gambled - He applied for a university in the big city
+    and got accepted! Leaving everything he knew for the new and wider world.\r\n\r\n2
+    years in though and he still haven\u2019t acclimated with his environment. The
+    Frog-Man tradition and bug eating habit is giving other people a weird look,
+    so he has tried to suppress those habits.\r\nStill, he barely has any friends
+    and is spending most of his time working and studying at home. It changed when
+    he looked himself in the mirror one day and noticed a wrinkle, a sign of his
+    life advancing but with barely any real life experience to show for it. Now he
+    really want to change that for real - He is going to get out there! Find experiences
+    and even some LOVE!\r\n\r\nHopefully a fly won\u2019t fly near him that he can\u2019t
+    resist.\r\n\nGeriol lived in a closed off community along the longest river in
+    the country were 90% of the population were Frog-Men. He lived in a lovefilled
+    family and tight-knit neighborhood where Frog-Man tradition is held strongly
+    and their diet almost consist of bugs and flies from nature, especially flies
+    being almost like catnip.\r\n\r\nGeriol always had a thing for trinkets and math,
+    things not very associated in his community. With the recent boost of computer
+    technology he took a big gambled - He applied for a university in the big city
+    and got accepted! Leaving everything he knew for the new and wider world.\r\n\r\n2
+    years in though and he still haven\u2019t acclimated with his environment. The
+    Frog-Man tradition and bug eating habit is giving other people a weird look,
+    so he has tried to suppress those habits.\r\nStill, he barely has any friends
+    and is spending most of his time working and studying at home. It changed when
+    he looked himself in the mirror one day and noticed a wrinkle, a sign of his
+    life advancing but with barely any real life experience to show for it. Now he
+    really want to change that for real - He is going to get out there! Find experiences
+    and even some LOVE!\r\n\r\nHopefully a fly won\u2019t fly near him that he can\u2019t
+    resist.\r\n"
+  summary: Why do you not date me?
+  Likes: 0

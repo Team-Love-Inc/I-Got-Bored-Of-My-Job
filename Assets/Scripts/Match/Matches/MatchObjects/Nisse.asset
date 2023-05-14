@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Nisse
   m_EditorClassIdentifier: 
   id: 1
-  name: Nisse
+  matchName: Nisse
   age: 57
+  picture: {fileID: 21300000, guid: 6cf369ca86032824b9b0aea1c4bfcc00, type: 3}
   description: I like horns and want to meet someone with horns
+  summary: Why do you not date me instead of them?
   Likes: 3
