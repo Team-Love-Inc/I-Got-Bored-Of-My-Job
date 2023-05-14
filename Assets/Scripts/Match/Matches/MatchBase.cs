@@ -7,7 +7,7 @@ public class MatchBase : ScriptableObject
     [SerializeField] int id;
     [SerializeField] string matchName;
     [SerializeField] int age;
-    public Sprite picture;
+    [SerializeField] Sprite picture;
 
     [TextArea]
     [SerializeField] string description;

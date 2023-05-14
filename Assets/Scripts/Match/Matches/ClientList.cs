@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ClientList : MonoBehaviour
 {
+    //Script for creating clickable buttons of each existin match in List<MatchBase>.
+    //Makes it possible to drag & drop scritable objects of MatchBase of choosable matches before a date
+
     public TextMeshProUGUI text;
     public Image portrait;
 
@@ -21,6 +24,8 @@ public class ClientList : MonoBehaviour
 
         foreach (var match in Matches)
         {
+            GlobalDataSingleton.setMatches(match);
+            buttonTemplate.name = match.Name;
             portrait.sprite = match.Picture;
             text.text = match.Summmary;
             Instantiate(buttonTemplate, transform);
@@ -28,4 +33,5 @@ public class ClientList : MonoBehaviour
 
         Destroy(buttonTemplate);
     }
+
 }
