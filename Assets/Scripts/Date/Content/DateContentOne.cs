@@ -15,25 +15,27 @@ public class DateContentOne : Content
     [SerializeField]
     private Canvas StoryCanvas = null;
 
-    [SerializeField]
     private List<Button> TempButtons = new List<Button>();
     
     [SerializeField]
     private Text ClientSpeech = null;
-    [SerializeField]
-    private Text ClientStats= null;
 
     [SerializeField]
     private Text MatchSpeech = null;
-    [SerializeField]
-    private Text MatchStats = null;
 
     [SerializeField]
     private Text NarrationSpeech = null;
 
+    [SerializeField]
+    private GameObject ChoiceAbility = null;
+
+    private bool feedback = false;
+    private string feedbackResult = "NEUTRAL";
+
     protected override void StartContent()
     {
         StoryCanvas.enabled = true;
+        ChoiceAbility.SetActive(false);
         StartStory();
     }
     public void BtnPressed()
@@ -45,12 +47,7 @@ public class DateContentOne : Content
     {
         story = conversation.StartStory();
         story.allowExternalFunctionFallbacks = true;
-        story.ObserveVariable("clientMood", (string varName, object newValue) => {
-            ClientStats.text = "Client mood " + (int)newValue + "%";
-        });
-        story.ObserveVariable("matchMood", (string varName, object newValue) => {
-            MatchStats.text = "Match mood " + (int)newValue + "%";
-        });
+        story.BindExternalFunction("getFeedBack", getFeedBack);
         ContinueStory(StoryCanvas, true);
     }
 
@@ -62,8 +59,6 @@ public class DateContentOne : Content
             GameObject.Destroy(button.gameObject);
         }
         TempButtons.Clear();
-        ClientStats.text = "Client mood " + ChangeMood(true, "clientMood", 10, true) + "%";
-        MatchStats.text = "Match mood " + ChangeMood(true, "matchMood", 10, true) + "%";
         ContinueStory(StoryCanvas);
     }
 
@@ -95,7 +90,20 @@ public class DateContentOne : Content
             }
             foreach (var tag in tags)
             {
-                if(tag.Trim().ToLower().StartsWith("pause"))
+                if (tag.Trim().ToLower().StartsWith("enablefeedback"))
+                {
+                    feedbackResult = "NEUTRAL";
+                    ChoiceAbility.SetActive(true);
+                    continue;
+                }
+
+                if (tag.Trim().ToLower().StartsWith("disablefeedback"))
+                {
+                    ChoiceAbility.SetActive(false);
+                    continue;
+                }
+
+                if (tag.Trim().ToLower().StartsWith("pause"))
                 {
                     var pause = tag.Split('-');
                     if(pause.Length != 2)
@@ -146,40 +154,23 @@ public class DateContentOne : Content
         }
     }
 
-    // Functions to change mood either directly or through abilities.
-    public void CastAbility(int ability)
+    public void getFeedBack()
     {
-        story.EvaluateFunction("AbilityPressed", ability);
+        var newList = new Ink.Runtime.InkList("FeedBack", story);
+        newList.AddItem(feedbackResult);
+        story.variablesState["FeedBack"] = newList;
     }
 
-
-    public void ClientChangeMood(bool increase)
+    public void buttonPressed(bool choice)
     {
-        ClientStats.text = "Client mood " + ChangeMood(increase, "clientMood", 10) + "%";
-    }
-
-    public void MatchChangeMood(bool increase)
-    {
-        MatchStats.text = "Match mood " + ChangeMood(increase, "matchMood", 10) + "%";
-    }
-
-    private int ChangeMood(bool increase, string variable, int amount, bool reset = false)
-    {
-        int value = (int)story.variablesState[variable] + (increase ? amount : -amount);
-        if(reset)
+        if(choice)
         {
-            value = 50;
+            feedbackResult = "YES";
         }
-        else if (value < 0)
+        else
         {
-            value = 0;
+            feedbackResult = "NO";
         }
-        else if (value > 100)
-        {
-            value = 100;
-        }
-
-        story.variablesState[variable] = value;
-        return value;
+        ChoiceAbility.SetActive(false);
     }
 }
