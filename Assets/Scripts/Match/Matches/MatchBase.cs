@@ -7,7 +7,12 @@ public class MatchBase : ScriptableObject
     [SerializeField] int id;
     [SerializeField] string matchName;
     [SerializeField] int age;
+    [SerializeField] Sprite picture;
+
+    [TextArea]
     [SerializeField] string description;
+
+    [SerializeField] string summary;
     [SerializeField] MatcheLikes Likes;
 
     //Access properties
@@ -15,6 +20,8 @@ public class MatchBase : ScriptableObject
     public string Name { get { return matchName; } }
     public int Age { get { return age; } }
     public string Description { get { return description; } }
+    public string Summmary { get { return summary; } }
+    public Sprite Picture { get { return picture; } }
 }
 
 public enum MatcheLikes
