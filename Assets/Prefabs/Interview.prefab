@@ -878,6 +878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 547738199495836080}
+  portrait: {fileID: 0}
   Matches: []
 --- !u!1 &2102020881676840048
 GameObject:
