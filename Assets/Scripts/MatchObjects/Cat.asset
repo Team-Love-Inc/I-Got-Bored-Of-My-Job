@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58b5026e70b5c9d42bcf8c0414287591, type: 3}
-  m_Name: Bosse
+  m_Name: Cat
   m_EditorClassIdentifier: 
-  id: 2
-  matchName: Bosse
-  age: 34
-  picture: {fileID: 21300000, guid: 6cf369ca86032824b9b0aea1c4bfcc00, type: 3}
-  description: Pizza is the best food
-  summary: Please date me!
-  Likes: 0
+  id: 1
+  matchName: Cat
+  age: 20
+  picture: {fileID: 21300000, guid: 7800c9bf4a3e6d2488ae4c2f6e6aaa25, type: 3}
+  description: I am a cat
+  summary: Why do you not date me instead of them?
+  Likes: 3

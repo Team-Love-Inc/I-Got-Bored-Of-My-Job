@@ -54,9 +54,9 @@ Juliet: They are here!*/
 // Right now, it gets a random choice.
 === function getFeedBack() ===
 {shuffle:
-    - ~FeedBack = NO
+   // - ~FeedBack = NO
     - ~FeedBack = NEUTRAL
-    - ~FeedBack = YES
+    //- ~FeedBack = YES
 }
 ~ return
 

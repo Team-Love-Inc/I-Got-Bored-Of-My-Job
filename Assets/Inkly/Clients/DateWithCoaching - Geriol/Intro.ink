@@ -91,7 +91,7 @@ Geriol: Did you get here okay? Live close-by?
      Geriol: Never mind, that might not be important.
      ~changeMood(clientMood, -5)                               // Decrease client mood after we tell it that it should not talk about the weather.
      ~changeMood(matchMood, 5)                                 // Increase match mood, it doesn't like to talk about weather..
-     -> pickIntro()                                             // Here, we told the client no right away. Story could now lead to another intro
+     -> pickIntro()                                            // Here, we told the client no right away. Story could now lead to another intro
    - NEUTRAL:
       -> IntroArriveNeutral1 ->    
    - YES:
@@ -226,7 +226,7 @@ Geriol: Hehe…
 === IntroArriveYes2 === 
 #Client#pause-2,5
 {
--OverExcited: 
+- OverExcited: 
 Geriol: Maybe show me more of the book later?
 #Match#pause-2,5
 Dave: Yeah if interested.
