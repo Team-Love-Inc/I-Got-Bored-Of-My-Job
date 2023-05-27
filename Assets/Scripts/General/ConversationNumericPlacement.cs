@@ -19,8 +19,9 @@ public class ConversationNumericPlacement : MonoBehaviour
     private Text textPrefab = null;
     [SerializeField]
     private Button buttonPrefab = null;
-
-    public int numberOfButtons = 0;
+    
+    private List<Transform> temporaryItem = new List<Transform>();
+    private int numberOfButtons = 0;
 
     public Story StartStory()
     {
@@ -32,44 +33,59 @@ public class ConversationNumericPlacement : MonoBehaviour
         return story;
     }
 
-    public void GenericContinueStory(Canvas canvas, Func<Choice, bool> function)
+    public void GenericContinueStory(Canvas canvas, Action nextLine, Func<Choice, bool> nextTopic)
     {
         // Remove all the UI on screen
-        RemoveChildren(canvas);
+        //RemoveChildren(canvas);
 
-        int offset = 0;
-        while (story.canContinue)
+        //int offset = 0;
+        if (story.canContinue)
         {
             // Continue gets the next line of the story
             string text = story.Continue();
-            CreateAndPlaceText(text.Trim(), canvas, new Vector3(0, offset, 0));
-            offset -= 50;
+            //conversationTextBox.text = text.Trim();
+            // CreateAndPlaceText(text.Trim(), canvas, new Vector3(0, offset, 0));
+            //offset -= 50;
+
         }
 
         // Display all the choices, if there are any!
-        if (story.currentChoices.Count > 0)
+        if (story.currentChoices.Count > 0 && nextTopic != null)
         {
             for (int i = 0; i < story.currentChoices.Count; i++)
             {
                 Choice choice = story.currentChoices[i];
-                Button button = CreateAndPlaceButton(choice.text.Trim(), canvas, new Vector3(-112.5f*(numberOfButtons%2), -120 , 0));
+                Button button = CreateAndPlaceButton(choice.text.Trim(), canvas, new Vector3(-112.5f * (numberOfButtons % 2), -120, 0));
                 // Tell the button what to do when we press it
-                button.onClick.AddListener(delegate {
-                    function(choice);
+                button.onClick.AddListener(delegate
+                {
+                    nextTopic(choice);
                 });
             }
+        }
+        else if (nextLine != null)
+        {
+            //Button button = CreateAndPlaceButton("next", canvas, new Vector3(-112.5f * (numberOfButtons % 2), -120, 0));
+            //button.onClick.AddListener(delegate {
+            //    nextLine();
+            //});
         }
     }
 
     // Destroys all the children of this gameobject (all the UI)
-    public void RemoveChildren(Canvas canvas)
+    public void RemoveTemporaries(Canvas canvas)
     {
-        int childCount = canvas.transform.childCount;
-        for (int i = childCount - 1; i >= 0; --i)
+        //int childCount = canvas.transform.childCount;
+        //for (int i = childCount - 1; i >= 0; --i)
+        foreach(var item in temporaryItem)
         {
-            GameObject.Destroy(canvas.transform.GetChild(i).gameObject);
+            if(item != null)
+            {
+                GameObject.Destroy(item.gameObject);
+            }
         }
-        childCount = canvas.transform.childCount;
+        //childCount = canvas.transform.childCount;
+        temporaryItem.Clear();
         numberOfButtons = 0;
     }
 
@@ -79,6 +95,7 @@ public class ConversationNumericPlacement : MonoBehaviour
         storyText.text = text;
         storyText.transform.SetParent(canvas.transform, false);
         storyText.GetComponent<RectTransform>().anchoredPosition = Position;
+        temporaryItem.Add(storyText.transform);
         return storyText;
     }
 
@@ -97,6 +114,8 @@ public class ConversationNumericPlacement : MonoBehaviour
         layoutGroup.childForceExpandHeight = false;
 
         choice.GetComponent<RectTransform>().anchoredPosition = Position;
+
+        temporaryItem.Add(choice.transform);
 
         numberOfButtons++;
         return choice;

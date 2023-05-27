@@ -8,7 +8,7 @@ public class MatchContentTwo : Content
     public TextMeshProUGUI desc;
     public Image portrait;
 
-    private void Start()
+    protected override void StartContent()
     {
         var choosenMatch = GlobalDataSingleton.getMatch();
         portrait.sprite = choosenMatch.Picture;
@@ -17,14 +17,14 @@ public class MatchContentTwo : Content
         desc.text = choosenMatch.Description;
     }
 
-    protected override void StartContent()
-    {
-
-    }
-
-    public void BtnPressed()
+    public void GoOnDate()
     {
         Stop(2);
+    }
+
+    public void GoBack()
+    {
+        Stop(0);
     }
 }
 

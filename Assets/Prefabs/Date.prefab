@@ -2697,7 +2697,6 @@ MonoBehaviour:
   inkJSONAsset: {fileID: 4900000, guid: 2b7a04d4b537a1048aafabd19d2d611d, type: 3}
   textPrefab: {fileID: 11456674, guid: 9d3c534f265e3c849ad406fb92ec7089, type: 3}
   buttonPrefab: {fileID: 11455116, guid: dc2a405844df001459c5e0d4730cc8c5, type: 3}
-  numberOfButtons: 0
 --- !u!1 &7280080491179013797
 GameObject:
   m_ObjectHideFlags: 0

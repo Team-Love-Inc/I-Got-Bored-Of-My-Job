@@ -4,8 +4,18 @@ using System.Linq;
 public static class GlobalDataSingleton
 {
     private static MatchBase choosenMatch;
+    private static MatchBase client = null;
     public static List<MatchBase> Matches = new List<MatchBase>();
 
+
+    public static void setClient(MatchBase newClient)
+    {
+        client = newClient;
+    }
+    public static MatchBase getClient()
+    {
+        return client;
+    }
 
     public static void setMatch(MatchBase match)
     {
