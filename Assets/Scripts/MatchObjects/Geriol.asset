@@ -15,14 +15,8 @@ MonoBehaviour:
   id: 4
   matchName: Geriol Highleaf
   age: 13
-  picture: {fileID: 21300000, guid: 6cf369ca86032824b9b0aea1c4bfcc00, type: 3}
-  description: "Geriol lived in a closed off community along the longest river in
-    the country were 90% of the population were Frog-Men. He lived in a lovefilled
-    family and tight-knit neighborhood where Frog-Man tradition is held strongly
-    and their diet almost consist of bugs and flies from nature, especially flies
-    being almost like catnip.\r\n\r\nGeriol always had a thing for trinkets and math,
-    things not very associated in his community. With the recent boost of computer
-    technology he took a big gambled - He applied for a university in the big city
-    and got accepted! Leaving everything he knew for the new and wider world.\r"
+  picture: {fileID: 21300000, guid: 5ecb150c233fedd41b12a289f68558bb, type: 3}
+  description: "Hello. I am a frog man looking for love. \n\nI have a big heart and
+    I do not want to be alone all my life.\n"
   summary: Why do you not date me?
   Likes: 0

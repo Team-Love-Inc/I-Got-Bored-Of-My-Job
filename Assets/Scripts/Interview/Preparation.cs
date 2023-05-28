@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
+using TMPro;
 
 
 public class Preparation : MonoBehaviour
@@ -47,7 +48,7 @@ public class Preparation : MonoBehaviour
             if(count < QuestionButtons.Count)
             {
                 var button = QuestionButtons[count];
-                button.GetComponentInChildren<Text>().text = question.Value;
+                button.GetComponentInChildren<TextMeshProUGUI>().text = question.Value;
                 button.onClick.AddListener(delegate {
                     SaveQuestion(question, button);
                 });
