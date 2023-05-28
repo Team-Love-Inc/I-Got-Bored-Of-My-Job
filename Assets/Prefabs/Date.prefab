@@ -3398,11 +3398,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5639780849035277272, guid: a0fa6fc1b23a2ec41b32fd775e0fbb9b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 61
+      value: 86.9
       objectReference: {fileID: 0}
     - target: {fileID: 5639780849035277272, guid: a0fa6fc1b23a2ec41b32fd775e0fbb9b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -0.1116
       objectReference: {fileID: 0}
     - target: {fileID: 5652136173319516274, guid: a0fa6fc1b23a2ec41b32fd775e0fbb9b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3498,7 +3498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7224454754025721661, guid: a0fa6fc1b23a2ec41b32fd775e0fbb9b, type: 3}
       propertyPath: m_text
-      value: Match Mood
+      value: "Match \nLove meter"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0fa6fc1b23a2ec41b32fd775e0fbb9b, type: 3}
@@ -3948,7 +3948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7224454754025721661, guid: a0fa6fc1b23a2ec41b32fd775e0fbb9b, type: 3}
       propertyPath: m_text
-      value: Client Mood
+      value: "Client \nLove meter"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0fa6fc1b23a2ec41b32fd775e0fbb9b, type: 3}
