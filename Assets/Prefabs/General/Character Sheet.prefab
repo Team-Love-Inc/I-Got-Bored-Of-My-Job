@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 2028484959134003907}
   - component: {fileID: 4821263547577980775}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: Character Sheet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -29,6 +29,11 @@ public class DateContentOne : Content
     [SerializeField]
     private GameObject ChoiceAbility = null;
 
+    [SerializeField]
+    private ProgressBar ClientBar;
+    [SerializeField]
+    private ProgressBar MatchBar;
+
     private bool feedback = false;
     private string feedbackResult = "NEUTRAL";
 
@@ -48,6 +53,15 @@ public class DateContentOne : Content
         story = conversation.StartStory();
         story.allowExternalFunctionFallbacks = true;
         story.BindExternalFunction("getFeedBack", getFeedBack);
+        story.ObserveVariable("clientMood", (string varName, object newValue) => {
+            ClientBar.setProgress((int)newValue);
+        });
+        story.ObserveVariable("matchMood", (string varName, object newValue) =>
+        {
+            MatchBar.setProgress((int)newValue);
+        });
+        ClientBar.reset();
+        MatchBar.reset();
         ContinueStory(StoryCanvas, true);
     }
 
@@ -59,6 +73,7 @@ public class DateContentOne : Content
             GameObject.Destroy(button.gameObject);
         }
         TempButtons.Clear();
+        ClientBar.reset();
         ContinueStory(StoryCanvas);
     }
 
