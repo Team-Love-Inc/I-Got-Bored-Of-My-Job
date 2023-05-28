@@ -68,7 +68,7 @@ Hi, ah my name is donald.
 // I chose to use tunnels, where it goes down but then up in the story.
 // Can also just have branching, when we care about previous choices.
 === IntroWeather ===
-#EnableFeedBack                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#EnableFeedBack-5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
 #Client#pause-2,5
 Nice weather we're having right?
 #Match#pause-2,5
@@ -118,7 +118,7 @@ Yea, yesterday it was raining. I don't really like rain.
 .. rain is atleast good for the plants
 #Client#pause-2,5
 well it makes you wet and that is not nice
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Client#pause-2,5
 It was very windy when I visited the ice cream kingdom last week.
 #DisableFeedBack
@@ -134,7 +134,7 @@ Yes!! And yesterday it was raining?? I hate rain soo much.
 .. uh rain is not that bad
 #Client#pause-2,5
 It destorys my clothes and its soo annoying!!
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Client#pause-2,5
 OOOOOOOH I just rememberd. There were SO MUCH WIND when I visited the ice cream kingdom last week. WIND IS SO COOL.
 ~OverExcited = true

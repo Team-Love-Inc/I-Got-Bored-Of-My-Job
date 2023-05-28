@@ -49,6 +49,34 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
+    public bool setCountDown(string time, float startValue = 1f)
+    {
+        if (!float.TryParse(time, out float interval))
+        {
+            Debug.Log("ProgressBar - countDown: Numeric conversion of " + time + " failed.");
+            return false;
+        }
+        return setCountDown(interval, startValue);
+    }
+
+    public bool setCountDown(float time, float startValue = 1f)
+    {
+        time = time < 0 ? 0f : time;
+        if(startValue > 0)
+        {
+            setBarFillAmount(startValue);
+        }
+
+        if (AnimationCoroutine != null)
+        {
+            StopCoroutine(AnimationCoroutine);
+        }
+
+        AnimationCoroutine = StartCoroutine(AnimateProgress(0f, 1/time));
+
+        return true;
+    }
+
     private IEnumerator AnimateProgress(float Progress, float Speed)
     {
         float time = 0;
@@ -67,6 +95,9 @@ public class ProgressBar : MonoBehaviour
     private void setBarFillAmount(float amount)
     {
         ProgressImage.fillAmount = amount;
-        progressValue.text = ((int)(amount * 100)).ToString() + "%";
+        if(progressValue != null)
+        {
+            progressValue.text = ((int)(amount * 100)).ToString() + "%";
+        }
     }
 }

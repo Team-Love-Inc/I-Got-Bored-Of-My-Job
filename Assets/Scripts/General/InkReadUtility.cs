@@ -5,11 +5,6 @@ using Ink.Runtime;
 
 public class InkReadUtility
 {
-
-   //public static List<string> GetGlobalTags(Story story, string identifier)
-   //{
-
-   //}
    public static Dictionary<string, string> GetGlobalTags(Story story, string identifier)
     {
         Dictionary<string, string> storage = new Dictionary<string, string>();
@@ -43,13 +38,5 @@ public class InkReadUtility
             Debug.LogError("InkReadUtility: GetGlobalTags: Global tag does not contain '" + identifier + "'");
         }
         return storage;
-    }
-
-    class Storage
-    {
-        public Storage(Dictionary<string, string> storage)
-        {
-
-        }
-    }
+   }
 }

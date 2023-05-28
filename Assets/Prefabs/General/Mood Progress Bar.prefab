@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 332458892302627554}
   - component: {fileID: 4678345408669602918}
   m_Layer: 0
-  m_Name: Progress Bar
+  m_Name: Mood Progress Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

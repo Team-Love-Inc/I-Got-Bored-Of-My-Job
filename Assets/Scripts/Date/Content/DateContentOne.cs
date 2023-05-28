@@ -33,6 +33,8 @@ public class DateContentOne : Content
     private ProgressBar ClientBar;
     [SerializeField]
     private ProgressBar MatchBar;
+    [SerializeField]
+    private ProgressBar AbilityTimerBar;
 
     private bool feedback = false;
     private string feedbackResult = "NEUTRAL";
@@ -62,6 +64,7 @@ public class DateContentOne : Content
         });
         ClientBar.reset();
         MatchBar.reset();
+        AbilityTimerBar.reset(1f);
         ContinueStory(StoryCanvas, true);
     }
 
@@ -108,7 +111,19 @@ public class DateContentOne : Content
                 if (tag.Trim().ToLower().StartsWith("enablefeedback"))
                 {
                     feedbackResult = "NEUTRAL";
+                    var pause = tag.Split('-');
+                    if (pause.Length != 2)
+                    {
+                        Debug.LogError("DateContentOne - ContinueStory: enable feedback pause tag '" + tag.Trim() + "'with invalid format found.");
+                        continue;
+                    }
+
                     ChoiceAbility.SetActive(true);
+                    if(!AbilityTimerBar.setCountDown(pause[1]))
+                    {
+                        ChoiceAbility.SetActive(false);
+                        continue;
+                    }
                     continue;
                 }
 
@@ -123,7 +138,7 @@ public class DateContentOne : Content
                     var pause = tag.Split('-');
                     if(pause.Length != 2)
                     {
-                        Debug.Log("DateContentOne - ContinueStory: pause tag '" + tag.Trim() + "'with invalid format found.");
+                        Debug.LogError("DateContentOne - ContinueStory: pause tag '" + tag.Trim() + "'with invalid format found.");
                         continue;
                     }
                     StartCoroutine(StorySleep(pause[1]));
