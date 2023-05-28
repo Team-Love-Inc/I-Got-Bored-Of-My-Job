@@ -31,8 +31,7 @@ Ending food and admiring scenery with smol fruit platter eat.
  I have some fruits for dessert, hope it ok. //Geriol
 #Match#pause-2,5
  Yes, thanks. It fine.
-Speech bubble to show if Match like Geriol food choice or not. Affect Match mood -10 if bad food match. (No player to affect food choice cause this be personality.)
-
+//Speech bubble to show if Match like Geriol food choice or not. Affect Match mood -10 if bad food match. (No player to affect food choice cause this be personality.)
 
 -> pickEnd
 
@@ -57,7 +56,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 -> END
 
 === EndFamily ===
-#EnableFeedBack                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#EnableFeedBack-2,5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
 #Client#pause-2,5
  So you got friends and family here in town? //Geriol
 
@@ -96,7 +95,7 @@ They are like me that likes to be by themselves at home so we aren’t that driv
 What stuff do you guys usually do then? //Geriol
 
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
 Eeh… Watch movies I guess? We don’t really need to do much with each other. Just sitting on the sofa quietly is good enough for us. //Dave
 #DisableFeedBack
@@ -147,7 +146,7 @@ Mom and dad lives in the northern part of town. One brother lives around here an
  That’s so nice! Most people I’ve met are pretty distant with their families. //Geriol
 
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
  I guess that is more of the default. But yeah. My family is pretty much the closest people I have. How about you and your family? //Dave
 ~OverExcited = true
@@ -327,7 +326,7 @@ It’s like having 50 sets of parents. And we celebrated everything together… 
 }
 ->->
 === EndPlaces ===
-#EnableFeedBack                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#EnableFeedBack-2,5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
 #Client#pause-2,5
  What type of places you like go to? //Geriol
 
@@ -367,7 +366,7 @@ It’s like having 50 sets of parents. And we celebrated everything together… 
 #Client#pause-2,5
  Like what? //Geriol
  
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
  Like a historical museum. //Dave
 #DisableFeedBack
@@ -415,7 +414,7 @@ Dave: Maybe that’s not for you, then. //Geriol
  I usually only move between work and home and not so many other places. //Dave
 #Client#pause-2,5
  Well that’s on work days, no? Aren’t there any places you like to go to when you got the time? //Geriol
-#EnableFeedBack
+#EnableFeedBack-2,5
  #Match#pause-2,5
  Time time time… It just seems like I don’t have time for much else but that. But I guess places I like to go and do stuff at are… Like… I don’t know. A cake shop or something? //Dave
 ~OverExcited = true
@@ -622,7 +621,7 @@ Everything gathered in a big place where a lot of people go to for learning. //D
 }
 ->->
 === EndMemory ===
-#EnableFeedBack                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#EnableFeedBack-2,5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
 #Client#pause-2,5
  Do you have a favourite memory? //Geriol
 
@@ -664,7 +663,7 @@ Everything gathered in a big place where a lot of people go to for learning. //D
 #Client#pause-2,5
 It’s beautiful up here. And seeing it for the first time made me really, really happy. I’d never seen a fire before. It was so cool to see back then. //Geriol
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
  Haha, I can imagine. That’s really cool. //Dave
 #DisableFeedBack
@@ -719,7 +718,7 @@ I wanted to make same and make others awed like I was. Might not be the most awe
 #Client#pause-2,5
  I’m sure you’ll be able to make it one day. //Geriol
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
  What about you? //Dave
 ~OverExcited = true

@@ -8,8 +8,6 @@ LIST INTRO = (introArrive), (introSorry), (introWeather)
 // Example variable that can be used to have some memory of previous choice.
 // If complete memory is required, each choice should be a unique branch.
 VAR OverExcited = false
-# N: Match = Dave
-# N: Client = Geriol
 
 // Functional knot to pick intro. Call when a new intro is needed.
 // If all intros are used, the story ends.
@@ -54,7 +52,6 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 === IntroEnd ===
 ~ temp cm = checkMood(clientMood, 50)
 ~ temp mm = checkMood(matchMood, 50)
-{clientMood} {matchMood}
 {
  - cm && mm: -> MiddleStart                                         // If client and match mood is good.
  - !cm && !mm:                                                      // If client and match mood is bad
@@ -78,7 +75,7 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 // I chose to use tunnels, where it goes down but then up in the story.
 // Can also just have branching, when we care about previous choices.
 === IntroArrive ===
-#EnableFeedBack-2,5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#EnableFeedBack-2,5                                                     // Use this tag to tell unity to record player input.
 #Client#pause-2,5
  Did you get here okay? Live close-by? //Geriol
 
@@ -187,8 +184,7 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 {FeedBack:
    - NO:                                        
       ~OverExcited = false
-      -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
-                                                                // instead of going back to a new intro.
+      -> No1->
    - NEUTRAL:
       ->->  
    - YES:
@@ -231,10 +227,8 @@ Hello! Sorry I’m late, are you Geriol? //Dave
  I already feel the guilt eating at me. Or it’s just hunger. You hungry? //Geriol
 #Match#pause-2,5
  I could eat something.  //Dave
-
-                       // If overExicted is true
-    ~changeMood(clientMood, 5)
-    ~changeMood(matchMood, 5)
+~changeMood(clientMood, 5)
+~changeMood(matchMood, 5)
  - !OverExcited:
 #Client#pause-2,5
  No I just had to get around a few corners and then I got here. Just had to stuff some breakfast in mouth. //Geriol
@@ -246,8 +240,6 @@ Hello! Sorry I’m late, are you Geriol? //Dave
  …Sure! //Dave
 #Client#pause-2,5
  Hehe… //Geriol
-
- 
 ~OverExcited = false
 ~changeMood(clientMood, 3)
 ~changeMood(matchMood, 3)
@@ -284,10 +276,9 @@ Hello! Sorry I’m late, are you Geriol? //Dave
  Exactly! Big brains here. //Dave
 #Client#pause-2,5
  Definitely. //Geriol
+ ~changeMood(matchMood, 20)
+ ~changeMood(clientMood, 20) 
 
-        ~changeMood(matchMood, 20)
-        ~changeMood(clientMood, 20) 
-        
 - !OverExcited:
 
 #Client#pause-2,5
@@ -312,8 +303,8 @@ Hello! Sorry I’m late, are you Geriol? //Dave
  Think they just like to do those stuff. Haven’t talked with them but I try to say hello and they sound happy. //Dave
 
 ~OverExcited = false
-        ~changeMood(matchMood, 10)
-        ~changeMood(clientMood, 10) 
+~changeMood(matchMood, 10)
+~changeMood(clientMood, 10) 
 }
 ->->
 
@@ -354,7 +345,7 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 #Match#pause-2,5
  I suppose…? Uh, nice weather. Warm, comfy. //Dave
 #Client#pause-2,5
- *laugh* Yes, warm, comfy. Good description. Photosynthesis is cool. //Geriol
+laugh Yes, warm, comfy. Good description. Photosynthesis is cool. //Geriol
 
 #EnableFeedBack-2,5
 #Match#pause-2,5
@@ -366,8 +357,7 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 {FeedBack:
    - NO:                                        
       ~OverExcited = false
-      -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
-                                                                // instead of going back to a new intro.
+      -> No1->
    - NEUTRAL:
       ->->  
    - YES:
@@ -392,7 +382,7 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 #Client#pause-2,5
  We say name, that’s start! //Geriol
 #Match#pause-2,5
- *Laugh* Yes, that start. I don’t go outside meeting other much. //Dave
+Laugh, Yes, that start. I don’t go outside meeting other much. //Dave
 #Client#pause-2,5
  Me neither! Stay home most time. Like being alone. But alone become lonely. //Geriol
 
@@ -407,8 +397,7 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 {FeedBack:
    - NO:                                        
       ~OverExcited = false
-      -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
-                                                                // instead of going back to a new intro.
+      -> No1->
    - NEUTRAL:
       ->->  
    - YES:
@@ -424,7 +413,6 @@ Hello! Sorry I’m late, are you Geriol? //Dave
  Yes. //Geriol
 ~changeMood(clientMood, 10)
 ~changeMood(matchMood, 10)
-->->
 ->->
 
 ///// Start of choice 2
@@ -442,10 +430,9 @@ Hello! Sorry I’m late, are you Geriol? //Dave
  Yes, let’s see. So far, you’re very nice. //Geriol
 #Match#pause-2,5
  You’re very nice too. Even if it be both our first date time. //Dave
+~changeMood(clientMood, 5)
+~changeMood(matchMood, 10)
 
-                       // If overExicted is true
-    ~changeMood(clientMood, 5)
-    ~changeMood(matchMood, 10)
  - !OverExcited:
 #Client#pause-2,5
  You know most photosynthesis happen out in sea under water? //Geriol
@@ -482,9 +469,8 @@ Hello! Sorry I’m late, are you Geriol? //Dave
  River community. //Geriol
 #Match#pause-2,5
  Oooh, cool. //Dave
-
-        ~changeMood(matchMood, 20)
-        ~changeMood(clientMood, 20) 
+~changeMood(matchMood, 20)
+~changeMood(clientMood, 20) 
         
 - !OverExcited:
 
@@ -504,17 +490,16 @@ Hello! Sorry I’m late, are you Geriol? //Dave
  I haven’t been out much, not sure good either. We’ll see! //Geriol
 
 ~OverExcited = false
-        ~changeMood(matchMood, 10)
-        ~changeMood(clientMood, 10) 
+~changeMood(matchMood, 10)
+~changeMood(clientMood, 10) 
 }
 ->->
- -> pickIntro()
 
 ////////// Start of yet anothter intro conversation ////////// 
 
 // Unimplemented
 === IntroWeather ===
-#EnableFeedBack                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#EnableFeedBack-2,5
 #Client#pause-2,5
  …THE WEATHER SURE IS NICE SO FAR! Didn’t look at today's forecast how it will stay. Have you? //Geriol
 
@@ -553,7 +538,7 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 #Client#pause-2,5
  Magic wind…? No too important. //Geriol
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
  True. //Dave
 #DisableFeedBack
@@ -609,8 +594,7 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 {FeedBack:
    - NO:                                        
       ~OverExcited = false
-      -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
-                                                                // instead of going back to a new intro.
+      -> No1->
    - NEUTRAL:
       ->->  
    - YES:
@@ -648,7 +632,7 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 #Match#pause-2,5
  I… noticed. I’m nervous too. //Dave
 #Client#pause-2,5
- R-Right. *clear throat* With weather nice, let’s find someplace? To sit? //Geriol
+ R-Right. "clear throat" With weather nice, let’s find someplace? To sit? //Geriol
 #Match#pause-2,5
  Yes. Let’s sit where the sun has dried the grass nicely, yes? //Dave
 #Client#pause-2,5
@@ -657,7 +641,6 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 ~changeMood(clientMood, 3)
 ~changeMood(matchMood, 3)
 
-                       // If overExicted is true
  - !OverExcited:
 #Client#pause-2,5
  Kites nice. Not had one for many years. //Geriol
@@ -693,8 +676,8 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 #Match#pause-2,5
  I… see… //Dave
 
-        ~changeMood(matchMood, -10)
-        ~changeMood(clientMood, -15) 
+~changeMood(matchMood, -10)
+~changeMood(clientMood, -15) 
         
 - !OverExcited:
 
@@ -711,10 +694,9 @@ Agree, inside better. Also cooler. Sun good, but very warm. //Geriol
 #Match#pause-2,5
 Yes, very warm. Very bright. //Dave
 
-        ~changeMood(matchMood, -5)
-        ~changeMood(clientMood, -5) 
+~changeMood(matchMood, -5)
+~changeMood(clientMood, -5) 
 
 ~OverExcited = false
 }
 ->->
- -> pickIntro()

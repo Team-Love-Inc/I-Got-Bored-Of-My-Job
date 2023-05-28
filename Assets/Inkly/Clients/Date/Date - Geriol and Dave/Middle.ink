@@ -61,7 +61,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 -> END
 
 === MiddleDay ===
-#EnableFeedBack                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#EnableFeedBack-2,5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
 #Client#pause-2,5
  So what you do? //Geriol
 
@@ -116,7 +116,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 #Client#pause-2,5
  Well… I always liked to tinker with things and solve math and logic problems. So your work sounds like something for me. //Geriol
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
  Well it’s not something I would want to do my whole life though. I got bigger dreams. //Dave
 #DisableFeedBack
@@ -168,7 +168,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 #Client#pause-2,5
  Hoho… Thats good. Mutual feelings. //Geriol
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
  So you still want to know? //Dave
 ~OverExcited = true
@@ -368,7 +368,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 }
 ->->
 === MiddleDate ===
-#EnableFeedBack                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#EnableFeedBack-2,5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
 #Client#pause-2,5
  So what made you wanna have this date? //Geriol
 
@@ -417,7 +417,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 #Match#pause-2,5
  Well I'm here to test her claim. //Dave
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Client#pause-2,5
  Yeah, right… //Geriol
 #DisableFeedBack
@@ -481,7 +481,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 #Match#pause-2,5
  Heh, that’s between her and me.  //Dave
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Client#pause-2,5
  Okay… //Geriol
 ~OverExcited = true
@@ -651,7 +651,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 }
 ->->
 === MiddleHobby ===
-#EnableFeedBack                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#EnableFeedBack-2,5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
 #Client#pause-2,5
  So what you like to do? Got any hobbies? //Geriol
 
@@ -682,7 +682,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 #Client#pause-2,5
  I think everyone has something, no? //Geriol
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
  Well that would make sense. But its pretty mundane stuff in my life. Wake up and work and then home and sleep if nothing else. //Dave
 #DisableFeedBack
@@ -736,7 +736,7 @@ Speech bubble to show if Match like Geriol food choice or not. Affect Match mood
 #Client#pause-2,5
  I’m pretty sure everyones days are like that. //Geriol
 
-#EnableFeedBack
+#EnableFeedBack-2,5
 #Match#pause-2,5
  In general, sure. //Dave
 ~OverExcited = true

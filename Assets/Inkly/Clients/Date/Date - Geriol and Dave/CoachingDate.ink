@@ -7,6 +7,9 @@ INCLUDE End.ink
 VAR clientMood = 50
 VAR matchMood = 50
 
+// # N: Match = Dave
+// # N: Client = Geriol
+
 // List representing the player choice.
 // Note that this kind of list (elements are not surrounded by '()' like for LIST INTRO in intro)
 // is more of a state machine variable. It can only be one of NO, NEUTRAL or YES.
