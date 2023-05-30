@@ -15,7 +15,7 @@ public class Preparation : MonoBehaviour
     private List<Button> QuestionButtons;
 
     [SerializeField]
-    private List<Text> PickedQuestions;
+    private List<TextMeshProUGUI> PickedQuestions;
     private int questionSlot = 0;
 
     [SerializeField]

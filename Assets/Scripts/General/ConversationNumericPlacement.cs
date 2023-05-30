@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
 using System;
-using System.Linq;
+using TMPro;
 
 public class ConversationNumericPlacement : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class ConversationNumericPlacement : MonoBehaviour
 
     // UI Prefabs
     [SerializeField]
-    private Text textPrefab = null;
+    private TextMeshProUGUI textPrefab = null;
     [SerializeField]
     private Button buttonPrefab = null;
     
@@ -89,9 +89,9 @@ public class ConversationNumericPlacement : MonoBehaviour
         numberOfButtons = 0;
     }
 
-    public Text CreateAndPlaceText(string text, Canvas canvas, Vector3 Position)
+    public TextMeshProUGUI CreateAndPlaceText(string text, Canvas canvas, Vector3 Position)
     {
-        Text storyText = Instantiate(textPrefab) as Text;
+        TextMeshProUGUI storyText = Instantiate(textPrefab) as TextMeshProUGUI;
         storyText.text = text;
         storyText.transform.SetParent(canvas.transform, false);
         storyText.GetComponent<RectTransform>().anchoredPosition = Position;
@@ -106,7 +106,7 @@ public class ConversationNumericPlacement : MonoBehaviour
         choice.transform.SetParent(canvas.transform, false);
 
         // Gets the text from the button prefab
-        Text choiceText = choice.GetComponentInChildren<Text>();
+        TextMeshProUGUI choiceText = choice.GetComponentInChildren<TextMeshProUGUI>();
         choiceText.text = text;
 
         // Make the button expand to fit the text
