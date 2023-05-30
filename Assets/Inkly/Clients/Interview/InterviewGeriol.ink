@@ -66,7 +66,7 @@ That why this is free?
 #Player
 Kind of. I need something more than inspiration. I need some love energy.
 #Client
-Geriol:　huh何？
+Geriol:　huh?
 #Player
 I’m a kind of vegetarian succi. I no eat bad energy. I eat love. Lack of it on moon. Positive things are hard to make = people lazy and eat bad energy.
 #Client

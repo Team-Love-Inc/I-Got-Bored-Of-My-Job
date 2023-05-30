@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Ink.Runtime;
-using System;
+using TMPro;
 
 public class DateContentOne : Content
 {
@@ -18,13 +18,13 @@ public class DateContentOne : Content
     private List<Button> TempButtons = new List<Button>();
     
     [SerializeField]
-    private Text ClientSpeech = null;
+    private TextMeshProUGUI ClientSpeech = null;
 
     [SerializeField]
-    private Text MatchSpeech = null;
+    private TextMeshProUGUI MatchSpeech = null;
 
     [SerializeField]
-    private Text NarrationSpeech = null;
+    private TextMeshProUGUI NarrationSpeech = null;
 
     [SerializeField]
     private GameObject ChoiceAbility = null;
@@ -147,10 +147,10 @@ public class DateContentOne : Content
                 switch(tag.Trim().ToLower())
                 {
                     case "match":
-                        MatchSpeech.text = "match: " + text.Trim();
+                        MatchSpeech.text = text.Trim();
                         break;
                     case "client":
-                        ClientSpeech.text = "client: " + text.Trim();
+                        ClientSpeech.text = text.Trim();
                         break;
                     case "narrator":
                         NarrationSpeech.text = text.Trim();

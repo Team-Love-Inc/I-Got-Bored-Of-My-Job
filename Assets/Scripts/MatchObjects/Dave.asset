@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58b5026e70b5c9d42bcf8c0414287591, type: 3}
-  m_Name: Cat
+  m_Name: Dave
   m_EditorClassIdentifier: 
-  id: 1
-  matchName: Cat
+  id: 3
+  matchName: Dave
   age: 20
-  picture: {fileID: 21300000, guid: 7800c9bf4a3e6d2488ae4c2f6e6aaa25, type: 3}
-  description: I am a cat
-  summary: Cat
-  Likes: 3
+  picture: {fileID: 21300000, guid: 113a99b6ae775224dab700573f6fb50d, type: 3}
+  description: Hello my name is dave. I like books and stuff
+  summary: Dave
+  Likes: 0

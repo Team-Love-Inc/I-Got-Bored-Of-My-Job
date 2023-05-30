@@ -36,7 +36,7 @@ Eating food/picnic tiiiime.
  I got picknick bag! Hope you like food. Many different. //Geriol
 #Match#pause-2,5
  Sure it good, thanks. //Dave
-Speech bubble to show if Match like Geriol food choice or not. Affect Match mood -10 if bad food match. (No player to affect food choice cause this be personality.)
+//Speech bubble to show if Match like Geriol food choice or not. Affect Match mood -10 if bad food match. (No player to affect food choice cause this be personality.)
 
 -> pickMiddle
 

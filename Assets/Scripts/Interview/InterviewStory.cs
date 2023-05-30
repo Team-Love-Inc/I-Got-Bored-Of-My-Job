@@ -4,6 +4,7 @@ using UnityEngine;
 using Ink.Runtime;
 using UnityEngine.UI;
 using System;
+using TMPro;
 
 public class InterviewStory : MonoBehaviour
 {
@@ -19,8 +20,8 @@ public class InterviewStory : MonoBehaviour
     public struct ConversationWindow
     {
         public GameObject Panel;
-        public Text TextBox;
-        public Text Name;
+        public TextMeshProUGUI TextBox;
+        public TextMeshProUGUI Name;
         public Image image;
     }
     public ConversationWindow conversation;
