@@ -15,7 +15,8 @@ MonoBehaviour:
   id: 3
   matchName: Dave
   age: 20
-  picture: {fileID: 21300000, guid: 113a99b6ae775224dab700573f6fb50d, type: 3}
-  description: Hello my name is dave. I like books and stuff
+  picture: {fileID: 21300000, guid: 6cf369ca86032824b9b0aea1c4bfcc00, type: 3}
+  description: I work in a tech-shop and I love reading science books. I create my
+    own machines too.
   summary: Dave
   Likes: 0

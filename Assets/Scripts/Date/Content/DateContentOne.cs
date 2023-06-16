@@ -36,8 +36,18 @@ public class DateContentOne : Content
     [SerializeField]
     private ProgressBar AbilityTimerBar;
 
-    private bool feedback = false;
     private string feedbackResult = "NEUTRAL";
+
+    [SerializeField]
+    private Animator ClientAnimator;
+    private int clientPreviousLoveValue = 50;
+
+    [SerializeField]
+    private Animator MatchAnimator;
+    private int matchPreviousLoveValue = 50;
+
+    private List<string> positiveEmotes = new List<string>() { "Happy", "Excited" };
+    private List<string> negativeEmotes = new List<string>() { "Angry", "Nervous", "Sad" };
 
     protected override void StartContent()
     {
@@ -57,10 +67,26 @@ public class DateContentOne : Content
         story.BindExternalFunction("getFeedBack", getFeedBack);
         story.ObserveVariable("clientMood", (string varName, object newValue) => {
             ClientBar.setProgress((int)newValue);
+            if ((int)newValue >= clientPreviousLoveValue)
+            {
+                ClientAnimator.Play(positiveEmotes[Random.Range(0, positiveEmotes.Count)]);
+            } 
+            else
+            {
+                ClientAnimator.Play(negativeEmotes[Random.Range(0, negativeEmotes.Count)]);
+            }
         });
         story.ObserveVariable("matchMood", (string varName, object newValue) =>
         {
             MatchBar.setProgress((int)newValue);
+            if ((int)newValue >= matchPreviousLoveValue)
+            {
+                MatchAnimator.Play(positiveEmotes[Random.Range(0, positiveEmotes.Count)]);
+            }
+            else
+            {
+                MatchAnimator.Play(negativeEmotes[Random.Range(0, negativeEmotes.Count)]);
+            }
         });
         ClientBar.reset();
         MatchBar.reset();
@@ -103,7 +129,7 @@ public class DateContentOne : Content
             var tags = story.currentTags;
             if (tags.Count == 0)
             {
-                NarrationSpeech.text = text.Trim();
+                //NarrationSpeech.text = text.Trim();
                 continue;
             }
             foreach (var tag in tags)
