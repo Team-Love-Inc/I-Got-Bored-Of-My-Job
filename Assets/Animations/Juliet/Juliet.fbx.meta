@@ -3,7 +3,47 @@ guid: b795615c070424741b06eb6518a79587
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert181
+    second: {fileID: 2100000, guid: 9176888bc9fab8c429732c453e534862, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert186
+    second: {fileID: 2100000, guid: e483fda660f1dab4d87c696413bc8011, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert187
+    second: {fileID: 2100000, guid: 9176888bc9fab8c429732c453e534862, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert188
+    second: {fileID: 2100000, guid: 9176888bc9fab8c429732c453e534862, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert190
+    second: {fileID: 2100000, guid: 9176888bc9fab8c429732c453e534862, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert196
+    second: {fileID: 2100000, guid: e483fda660f1dab4d87c696413bc8011, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert197
+    second: {fileID: 2100000, guid: 9176888bc9fab8c429732c453e534862, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert198
+    second: {fileID: 2100000, guid: e483fda660f1dab4d87c696413bc8011, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

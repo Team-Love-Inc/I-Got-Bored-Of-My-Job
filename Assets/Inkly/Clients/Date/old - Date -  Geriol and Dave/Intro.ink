@@ -39,7 +39,9 @@ VAR Client = "Geriol"
  Nothing to apologise for, I'm Dave. It's nice to meet you. //Dave
 #Client#pause-5
  Nice to meet you too. I'm Geriol. Again… //Geriol
--> pickIntro
+~DateSuccess = true
+-> END
+// -> pickIntro
 
 // Ending knot for intro, call at the end to check mood and start middle story.
 === IntroEnd ===
@@ -124,9 +126,9 @@ Oh, I see. It's good that you still made it here. //Geriol
       ~OverExcited = false
       -> No1->
    - NEUTRAL:
-      ->->  
+      ->IntroArriveNeutral2->  
    - YES:
-      ->->
+      ->IntroArriveYes1->
 }
 ->->
 = No1
@@ -185,9 +187,9 @@ Oh, really? Well, let me jot down the book's name for you so you can borrow it f
       ~OverExcited = false
       -> No1->
    - NEUTRAL:
-      ->->  
+      ->IntroArriveNeutral2->  
    - YES:
-      ->->
+      ->IntroArriveYes1->
 }
 ->->
 = No1
@@ -372,9 +374,9 @@ I don't know… Don't wanna bore you either. Maybe… Talk about the weather? //
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->IntroSorryNeutral2->  
    - YES:
-      ->->
+      ->IntroSorryYes2->
 }
 ->->
 = No1
@@ -417,9 +419,9 @@ I understand what you're saying, I feel the same way. It's cool we both share th
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->IntroSorryNeutral2->  
    - YES:
-      ->->
+      ->IntroSorryYes2->
 }
 ->->
 = No1
@@ -523,7 +525,6 @@ At least the kid is having fun. Haven't flown a kite in a long time. //Dave
 
 ////////// Start of yet anothter intro conversation ////////// 
 
-// Unimplemented
 === IntroWeather ===
 #EnableFeedBack-5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
 #Client#pause-5
@@ -579,9 +580,9 @@ Wind magic…? Not important. //Geriol
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->IntroWeatherNeutral2->  
    - YES:
-      ->->
+      ->IntroWeatherYes2->
 }
 ->->
 = No1
@@ -625,9 +626,9 @@ Wind magic…? Not important. //Geriol
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->IntroWeatherNeutral2->  
    - YES:
-      ->->
+      ->IntroWeatherYes2->
 }
 ->->
 = No1

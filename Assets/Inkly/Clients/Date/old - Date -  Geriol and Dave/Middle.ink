@@ -34,8 +34,8 @@ LIST MIDDLE = (middleDay), (middleDate), (middleHobby)
 // Call from main.
 === MiddleStart ===
 
-#Narrator#pause-5
-Eating food/picnic tiiiime.
+// #Narrator#pause-5
+// Eating food/picnic tiiiime.
 #Client#pause-5
  I got picknick bag! Hope you like food. Many different. //Geriol
 #Match#pause-5
@@ -139,9 +139,9 @@ Is that something you would like to do? //Dave
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->MiddleDayNeutral2->  
    - YES:
-      ->->
+      ->MiddleDayYes2->
 }
 ->->
 = No1
@@ -201,9 +201,9 @@ Just the tone then, maybe. Most people say what I do is very nerdy and won't rea
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->MiddleDayNeutral2->  
    - YES:
-      ->->
+      ->MiddleDayYes2->
 }
 ->->
 = No1
@@ -407,9 +407,9 @@ Yeah, right… //Geriol
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->MiddleDateNeutral2->  
    - YES:
-      ->->
+      ->MiddleDateYes2->
 }
 ->->
 = No1
@@ -471,9 +471,9 @@ We talked a few more times after that and we got into friends and dating and suc
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->MiddleDateNeutral2->  
    - YES:
-      ->->
+      ->MiddleDateYes2->
 }
 ->->
 = No1
@@ -673,9 +673,9 @@ Well that would make sense. But it's pretty mundane stuff in my life. Wake up an
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->MiddleHobbyNeutral2->  
    - YES:
-      ->->
+      ->MiddleHobbyYes2->
 }
 ->->
 = No1
@@ -717,9 +717,9 @@ In general, sure. //Dave
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->MiddleHobbyNeutral2->  
    - YES:
-      ->->
+      ->MiddleHobbyYes2->
 }
 ->->
 = No1

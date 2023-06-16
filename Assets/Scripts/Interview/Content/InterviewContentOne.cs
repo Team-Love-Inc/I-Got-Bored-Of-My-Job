@@ -11,7 +11,23 @@ public class InterviewContentOne : Content
 
     protected override void StartContent()
     {
+        StartCoroutine(Animate());
+    }
 
+    private IEnumerator Animate()
+    {
+        while(true)
+        {
+            foreach(var animator in Animators)
+            {
+                if(Random.Range(0, 1f) > 0.5f)
+                {
+                    animator.SetTrigger(Emotes[Random.Range(0, Emotes.Count)]);
+                    yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
+                }
+            }
+            yield return new WaitForSeconds(4f);
+        }
     }
 
     public void NextScene()

@@ -29,8 +29,8 @@ LIST END = (endFamily), (endPlaces), (endMemory)
 // Call from main.
 === EndStart ===
 
-#Narrator#pause-5
-Ending food and admiring scenery with small fruit platter eat.
+// #Narrator#pause-5
+// Ending food and admiring scenery with small fruit platter eat.
 #Client#pause-5
  I have some fruits for dessert, hope it ok. //Geriol
 #Match#pause-5
@@ -43,7 +43,9 @@ Ending food and admiring scenery with small fruit platter eat.
 ~ temp cm = checkMood(clientMood, 50)
 ~ temp mm = checkMood(matchMood, 50)
 {
- - cm && mm: -> EndStart                                         // If client and match mood is good.
+  - cm && mm:                                           // If client and match mood is good.
+   ~DateSuccess = true
+   -> END
  - !cm && !mm:                                                      // If client and match mood is bad
     #Match#pause-5
      This... Could have gone better.  //Dave
@@ -124,9 +126,9 @@ Eeh… Watch movies I guess? We don't really need to do much with each other. Ju
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->EndFamilyNeutral2->  
    - YES:
-      ->->
+      ->EndFamilyYes2->
 }
 ->->
 = No1
@@ -174,9 +176,9 @@ That's usually the norm, right? For me, my family is the closest bunch of people
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->EndFamilyNeutral2->  
    - YES:
-      ->->
+      ->EndFamilyYes2->
 }
 ->->
 = No1
@@ -394,9 +396,9 @@ Like a historical museum. //Dave
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->EndPlacesNeutral2->  
    - YES:
-      ->->
+      ->EndPlacesYes2->
 }
 ->->
 = No1
@@ -441,9 +443,9 @@ Time, time, time… It just seems like I don't have time for much else but that.
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->EndPlacesNeutral2->  
    - YES:
-      ->->
+      ->EndPlacesYes2->
 }
 ->->
 = No1
@@ -700,9 +702,9 @@ Haha, I can imagine. //Dave
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->EndMemoryNeutral2->  
    - YES:
-      ->->
+      ->EndMemoryYes2->
 }
 ->->
 = No1
@@ -757,9 +759,9 @@ I'm sure you'll be able to make it one day. //Geriol
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->EndMemoryNeutral2->  
    - YES:
-      ->->
+      ->EndMemoryYes2->
 }
 ->->
 = No1

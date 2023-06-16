@@ -39,7 +39,9 @@ VAR Client = "Geriol"
  Nothing to apologise for, I'm Dave. It's nice to meet you. //Dave
 #Client#pause-5
  Nice to meet you too. I'm Geriol. Again… //Geriol
--> pickIntro
+~DateSuccess = true
+-> END
+// -> pickIntro
 
 // Ending knot for intro, call at the end to check mood and start middle story.
 === IntroEnd ===
@@ -523,7 +525,6 @@ At least the kid is having fun. Haven't flown a kite in a long time. //Dave
 
 ////////// Start of yet anothter intro conversation ////////// 
 
-// Unimplemented
 === IntroWeather ===
 #EnableFeedBack-5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
 #Client#pause-5

@@ -43,7 +43,9 @@ LIST END = (endFamily), (endPlaces), (endMemory)
 ~ temp cm = checkMood(clientMood, 50)
 ~ temp mm = checkMood(matchMood, 50)
 {
- - cm && mm: -> EndStart                                         // If client and match mood is good.
+ - cm && mm:                                           // If client and match mood is good.
+   ~DateSuccess = true
+   -> END
  - !cm && !mm:                                                      // If client and match mood is bad
     #Match#pause-5
      This... Could have gone better.  //Dave

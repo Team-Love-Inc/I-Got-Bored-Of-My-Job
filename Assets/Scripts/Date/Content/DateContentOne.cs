@@ -205,8 +205,16 @@ public class DateContentOne : Content
         else if (!start)
         {
             // No more conversation or choices. Story is over.
-            story.ResetState();
-            ContinueStory(canvas, true);
+            if((bool)story.variablesState["DateSuccess"])
+            {
+                Debug.Log("Date success");
+                Stop(1);
+            } else
+            {
+                Stop(2);
+            }
+            //story.ResetState();
+            //ContinueStory(canvas, true);
         }
     }
 
