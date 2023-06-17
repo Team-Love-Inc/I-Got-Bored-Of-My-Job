@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.18381286, g: 0.22911099, b: 0.3040315, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -149,6 +149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interview
       objectReference: {fileID: 0}
+    - target: {fileID: 1770985910886502378, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000030517578
+      objectReference: {fileID: 0}
     - target: {fileID: 2102020881676840048, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -195,6 +199,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4359369398073738766, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215314148334613975, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5467858518927561611, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}

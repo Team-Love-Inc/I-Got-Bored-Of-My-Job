@@ -9,8 +9,13 @@ public class DateContentThree : Content
 
     }
 
-    public void BtnPressed()
+    public void MainMenu()
     {
-        Stop(StageNames.NONE);
+        Stop(StageNames.INTERVIEW);
+    }
+
+    public void TryAgain()
+    {
+        Stop(0);
     }
 }

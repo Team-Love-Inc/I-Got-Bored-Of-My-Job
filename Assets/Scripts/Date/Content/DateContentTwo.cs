@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class DateContentTwo : Content
 {
-    protected override void StartContent()
+    protected override void StartContent() {}
+    public void MainMenu()
     {
-
-    }
-    public void BtnPressed()
-    {
-        Stop(2);
+        Stop(StageNames.INTERVIEW);
     }
 }

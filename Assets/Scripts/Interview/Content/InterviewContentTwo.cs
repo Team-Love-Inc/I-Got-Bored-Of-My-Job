@@ -6,6 +6,9 @@ using Ink.Runtime;
 
 public class InterviewContentTwo : Content
 {
+    [SerializeField]
+    private GameObject DebugButton;
+
     private Story story;
 
     [SerializeField]
@@ -21,6 +24,10 @@ public class InterviewContentTwo : Content
 
     protected override void StartContent()
     {
+        if(Debug.isDebugBuild)
+        {
+            DebugButton.SetActive(true);
+        }
         GlobalDataSingleton.setClient(client);
         story = conversation.StartStory();
         preparation.Run(story);

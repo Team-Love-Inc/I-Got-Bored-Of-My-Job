@@ -19,7 +19,6 @@ public class Controller : MonoBehaviour
     {
         if(name is StageNames.NONE)
         {
-            Debug.Log(new System.Exception("Controller: Round is over"));
             Application.Quit();
             return;
         }

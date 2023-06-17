@@ -129,7 +129,6 @@ public class DateContentOne : Content
             var tags = story.currentTags;
             if (tags.Count == 0)
             {
-                //NarrationSpeech.text = text.Trim();
                 continue;
             }
             foreach (var tag in tags)
@@ -213,8 +212,6 @@ public class DateContentOne : Content
             {
                 Stop(2);
             }
-            //story.ResetState();
-            //ContinueStory(canvas, true);
         }
     }
 
