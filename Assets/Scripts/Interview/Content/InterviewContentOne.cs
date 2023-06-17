@@ -21,9 +21,7 @@ public class InterviewContentOne : Content
     [SerializeField]
     private TextMeshProUGUI IntroNextText;
     [SerializeField]
-    private TextMeshProUGUI ConversationText;
-    [SerializeField]
-    private Button IntroNextButton;
+    private List<TextMeshProUGUI> ConversationTexts;
 
     [SerializeField]
     private List<Animator> Animators;
@@ -104,6 +102,10 @@ public class InterviewContentOne : Content
         IntroScene.SetActive(true);
         IntroNextText.gameObject.SetActive(false);
         IntroBigText.CrossFadeAlpha(1f, 2f, false);
+        foreach(var obj in ConversationTexts)
+        {
+            obj.gameObject.SetActive(false);
+        }
         state = IntroState.INTRO_START;
     }
 
@@ -125,10 +127,42 @@ public class InterviewContentOne : Content
         }
     }
 
+    private List<string> HardCodedDialouge = new List<string>(){"The one and only romance loving Succubus." ,
+                                                                "We demils live on the second moon.", 
+                                                                "we kinda made it from metal as a place of our own when people stopped liking our magic." ,
+                                                                "Demils don’t really like romance on the moon. " ,
+                                                                "But I loved it so much!" ,
+                                                                "My greatest treasure is the disc I have on romance movies from down below." ,
+                                                                "And now I came down here to explore, to watch, and to see love with my own eyes rather than on a screen." ,
+                                                                "I need to understand love better so I can write the best and only romance novel on the moon!" ,
+                                                                "But I need to see love first… " ,
+                                                                "So I started a dating agency!" ,
+        };
+    private int dialougeOrder = 0;
+    private int textOrder = 0;
+    private int previousTextOrder = -1;
+        //"I’m very proud of it, made flyers and everything. The place might not be inviting, but at least the law isn’t coming after me here. And thanks to my expertly made flyers, I’ve gotten my first client! Let’s help them find love!" };
+
     public void BackgroundClicked()
     {
-        state = IntroState.INTRO_BUTTON_PRESSED_ONCE;
 
+        IntroBigText.CrossFadeAlpha(0f, 2f, false);
+
+        IntroNextText.CrossFadeAlpha(0f, 2f, false);
+        ConversationTexts[textOrder].CrossFadeAlpha(0f, 0f, false);
+        state = IntroState.INTRO_BUTTON_PRESSED_ONCE;
+        if (dialougeOrder < HardCodedDialouge.Count)
+        {
+            ConversationTexts[textOrder].text = HardCodedDialouge[dialougeOrder++];
+            ConversationTexts[textOrder].gameObject.SetActive(true);
+            ConversationTexts[textOrder].CrossFadeAlpha(1f, 2f, false);
+            if (previousTextOrder != -1)
+            {
+                ConversationTexts[previousTextOrder].CrossFadeAlpha(0f, 2f, false);
+            }
+            previousTextOrder = textOrder;
+        }
+        textOrder = (textOrder + 1) % ConversationTexts.Count;
     }
 
 
