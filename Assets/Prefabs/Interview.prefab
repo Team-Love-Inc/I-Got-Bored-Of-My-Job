@@ -6348,6 +6348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bc2815ff7addf4ca2a200bec81b27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 0}
   StoryCanvas: {fileID: 8209548077632286918}
   conversation:
     Panel: {fileID: 8982320393435439712}
@@ -7848,7 +7849,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7091206367538728172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
