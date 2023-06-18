@@ -29,7 +29,7 @@ public struct CharacterSheet
 
     public void setNote(string note)
     {
-        Notes.text += note + "\n";
+        Notes.text += note + "\r";
     }
 }
 

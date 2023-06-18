@@ -69,7 +69,7 @@ Well technology is growing very rapidly right now so maybe it will happen soon?
 Oh boy that would be the best! But we got off track here! Studying and working with computers. Check! Alright next question.
 
 #End
-Likes computers, think magic is scary
+Likes computers, think magic is scary.
 
 
 -> END
@@ -202,7 +202,7 @@ Would you even be able to pay for it?
 … Next set of questions, customer!
 
 #End
-Lives in student home, has loads of loans
+Lives in student home, has loads of loans.
 
 -> END
 
@@ -300,7 +300,7 @@ No, anything. I'm open to it. I just need help to meet someone.
 Well, desperation will make one productive I guess! Then it's good you found me! Next question!
 
 #End
-Has no friends and likes flies
+Has no friends and likes flies.
 
 -> END
 
@@ -351,6 +351,6 @@ T-Thank you?
 I should be the one to thank you, Geriol. Next question then!
 
 #End
-Has some love experience
+Has some love experience.
 
 ->END

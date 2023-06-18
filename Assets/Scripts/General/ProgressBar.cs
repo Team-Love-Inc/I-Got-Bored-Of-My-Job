@@ -97,7 +97,7 @@ public class ProgressBar : MonoBehaviour
         ProgressImage.fillAmount = amount;
         if(progressValue != null)
         {
-            progressValue.text = ((int)(amount * 100)).ToString() + "%";
+            progressValue.text = ((int)(amount * 100)).ToString();
         }
     }
 }

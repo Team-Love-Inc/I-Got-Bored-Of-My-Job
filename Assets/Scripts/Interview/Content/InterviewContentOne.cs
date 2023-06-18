@@ -7,6 +7,9 @@ using TMPro;
 public class InterviewContentOne : Content
 {
     [SerializeField]
+    private GameObject SkipButton;
+
+    [SerializeField]
     private GameObject MainMenuCamera;
     [SerializeField]
     private GameObject MainMenu;
@@ -62,6 +65,14 @@ public class InterviewContentOne : Content
 
     protected override void StartContent()
     {
+        if(Debug.isDebugBuild)
+        {
+            SkipButton.SetActive(true);
+        }
+        else
+        {
+            SkipButton.SetActive(false);
+        }
         state = IntroState.MAIN_MENU;
         MenuAssets.SetActive(true);
         Office.SetActive(false);
@@ -282,5 +293,10 @@ public class InterviewContentOne : Content
     public void Quit()
     {
         Stop(StageNames.NONE);
+    }
+
+    public void Skip()
+    {
+        Stop(1);
     }
 }

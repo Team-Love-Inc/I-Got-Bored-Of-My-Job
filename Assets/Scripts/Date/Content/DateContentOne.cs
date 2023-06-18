@@ -49,8 +49,18 @@ public class DateContentOne : Content
     private List<string> positiveEmotes = new List<string>() { "Happy", "Excited" };
     private List<string> negativeEmotes = new List<string>() { "Angry", "Nervous", "Sad" };
 
+    [SerializeField]
+    private GameObject ClientBubble;
+    [SerializeField]
+    private GameObject MatchBubble;
+    [SerializeField]
+    private GameObject NarratorBubble;
+
     protected override void StartContent()
     {
+        MatchBubble.SetActive(false);
+        ClientBubble.SetActive(false);
+        NarratorBubble.SetActive(false);
         StoryCanvas.enabled = true;
         ChoiceAbility.SetActive(false);
         StartStory();
@@ -172,12 +182,21 @@ public class DateContentOne : Content
                 switch(tag.Trim().ToLower())
                 {
                     case "match":
+                        MatchBubble.SetActive(true);
+                        ClientBubble.SetActive(false);
+                        NarratorBubble.SetActive(false);
                         MatchSpeech.text = text.Trim();
                         break;
                     case "client":
+                        MatchBubble.SetActive(false);
+                        ClientBubble.SetActive(true);
+                        NarratorBubble.SetActive(false);
                         ClientSpeech.text = text.Trim();
                         break;
                     case "narrator":
+                        MatchBubble.SetActive(false);
+                        ClientBubble.SetActive(false);
+                        NarratorBubble.SetActive(true);
                         NarrationSpeech.text = text.Trim();
                         break;
                     default:
@@ -193,7 +212,7 @@ public class DateContentOne : Content
             for (int i = 0; i < story.currentChoices.Count; i++)
             {
                 Choice choice = story.currentChoices[i];
-                Button button = conversation.CreateAndPlaceButton(choice.text.Trim(), canvas, new Vector3(0, -120, 0));
+                Button button = conversation.CreateAndPlaceButton(choice.text.Trim(), canvas, new Vector3(0, 50, 0));
                 button.onClick.AddListener(delegate
                 {
                     StartButton(choice);
