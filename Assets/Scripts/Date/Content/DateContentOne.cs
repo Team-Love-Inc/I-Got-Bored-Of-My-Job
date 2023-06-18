@@ -247,11 +247,11 @@ public class DateContentOne : Content
             if((bool)story.variablesState["DateSuccess"])
             {
                 Stop(1);
-            } else
+            } 
+            else
             {
                 Stop(2);
             }
-            //story.ResetState();
         }
     }
 

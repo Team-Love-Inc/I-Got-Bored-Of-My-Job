@@ -468,8 +468,7 @@ We talked a few more times after that and we got into friends and dating and suc
 {FeedBack:
    - NO:                                        
       ~OverExcited = false
-      -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
-                                                                // instead of going back to a new intro.
+      -> No1->
    - NEUTRAL:
       ->MiddleDateNeutral2->  
    - YES:
@@ -662,14 +661,11 @@ Hmm... When I really think about it there isn't that much that I actually do tha
 #Client#pause-5
 I think everyone has something, no? //Geriol
 ~changeMood(clientMood, -5)
-
-#EnableFeedBack-5,5
-#Match#pause-5,5
+#EnableFeedBack-5
+#Match#pause-5
 Well that would make sense. But it's pretty mundane stuff in my life. Wake up and work and then home and sleep if nothing else. //Dave
 #DisableFeedBack
 ~changeMood(matchMood, -5)
-
-
 
 ~getFeedBack()
 {FeedBack:
@@ -905,8 +901,6 @@ But I'm really waiting for a sequel that I need to read! //Dave
 Hehe. We really are stuck in this. //Geriol
 #Match#pause-5
 Such a sad fate! //Dave
-
-    	
 
 ~OverExcited = false
 }

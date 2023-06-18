@@ -45,7 +45,6 @@ LIST END = (endFamily), (endPlaces), (endMemory)
 {
  - cm && mm:
    ~DateSuccess = true
-   -> END
  - !cm && !mm:
     #Match#pause-5
      This... Could have gone better.  //Dave
@@ -159,8 +158,8 @@ Every two weeks. My mom was always a lady for holding a family close so we see a
 ~changeMood(matchMood, 8)
 #Client#pause-5
  That's so nice! Most people I've met are pretty distant with their families. //Geriol
-#EnableFeedBack-5,5
-#Match#pause-5,5
+#EnableFeedBack-5
+#Match#pause-5
 That's usually the norm, right? For me, my family is the closest bunch of people to me. How about you? What about your family? //Dave
 ~OverExcited = true
 
@@ -430,8 +429,8 @@ I usually only move between work and home, not many places in between. //Dave
 ~changeMood(matchMood, 8)
 #Client#pause-5
 That's on work days, no? Aren't there any places you like to go to when you have the time? //Geriol
-#EnableFeedBack-5,5
-#Match#pause-5,5
+#EnableFeedBack-5
+#Match#pause-5
 Time, time, time... It just seems like I don't have time for much else but that. But I guess places I like to go and do stuff at are... Like... I don't know. A cake shop? //Dave
 ~OverExcited = true
 ~changeMood(clientMood, 5)
@@ -720,7 +719,6 @@ It's not bad to have that as a favourite memory! It was something new for you. I
 ~changeMood(clientMood, -5)
 #Client#pause-5
  Heh, thanks! //Geriol
-
 ->->
 
 // Knot for yes choice 1.
@@ -782,10 +780,6 @@ Maybe... Maybe another day. //Geriol
 ~changeMood(matchMood, -4)
 #Match#pause-5
 Hmm... Fine. //Dave
-
-
-
-
 ->->
 
 ///// Start of choice 2
@@ -816,8 +810,6 @@ So I just started and kept thinking about it all. And I kinda wanted to see if I
 ~changeMood(matchMood, 8)
 #Match#pause-5
 That's cool! It's those kinds of memories that define us a little, I think. //Dave
-
-
  - !OverExcited:
  //Neutral->Neutral
 #Client#pause-5
@@ -907,8 +899,6 @@ It's good to have a favourite memory that inspired your dream. Mine sounds lame 
  No, it's not lame to want to go somewhere new and wondrous. I'd be the same if I saw something similar. It's a good favourite memory. //Dave
 #Client#pause-5
 Thanks. //Geriol
-
 ~OverExcited = false
 }
-
--> END
+->->

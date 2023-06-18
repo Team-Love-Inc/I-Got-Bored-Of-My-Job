@@ -532,6 +532,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 292589791126378456, guid: b9919ff3188d6b342a60d7c2bd3a353e, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 861034649}
     - target: {fileID: 376155545995298006, guid: b9919ff3188d6b342a60d7c2bd3a353e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -672,6 +676,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3631486433583378514, guid: b9919ff3188d6b342a60d7c2bd3a353e, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 861034649}
     - target: {fileID: 3908389928486583813, guid: b9919ff3188d6b342a60d7c2bd3a353e, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0

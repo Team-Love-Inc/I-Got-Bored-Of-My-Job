@@ -39,8 +39,6 @@ VAR Client = "Geriol"
  Nothing to apologise for, I'm Dave. It's nice to meet you. //Dave
 #Client#pause-5
  Nice to meet you too. I'm Geriol. Again... //Geriol
-// ~DateSuccess = true
-// -> END
 -> pickIntro
 
 // Ending knot for intro, call at the end to check mood and start middle story.
