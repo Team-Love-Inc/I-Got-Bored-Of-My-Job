@@ -7,6 +7,9 @@ using TMPro;
 public class InterviewContentOne : Content
 {
     [SerializeField]
+    private AudioManager sound;
+
+    [SerializeField]
     private GameObject SkipButton;
 
     [SerializeField]
@@ -65,7 +68,8 @@ public class InterviewContentOne : Content
 
     protected override void StartContent()
     {
-        if(Debug.isDebugBuild)
+        sound.PlayIntroMusic();
+        if (Debug.isDebugBuild)
         {
             SkipButton.SetActive(true);
         }

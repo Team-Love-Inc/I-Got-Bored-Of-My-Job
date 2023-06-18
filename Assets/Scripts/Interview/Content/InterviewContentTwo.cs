@@ -7,6 +7,9 @@ using Ink.Runtime;
 public class InterviewContentTwo : Content
 {
     [SerializeField]
+    private AudioManager sound;
+
+    [SerializeField]
     private GameObject DebugButton;
 
     private Story story;
@@ -24,7 +27,8 @@ public class InterviewContentTwo : Content
 
     protected override void StartContent()
     {
-        if(Debug.isDebugBuild)
+        sound.PlayInterviewMusic();
+        if (Debug.isDebugBuild)
         {
             DebugButton.SetActive(true);
         }

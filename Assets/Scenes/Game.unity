@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &861034649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 124978247236123062, guid: bd5d176546053ed4696eb31a968de62c, type: 3}
+  m_PrefabInstance: {fileID: 2612597002180324092}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8c71ba3a00fdf44ac2eca1a531cc1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &906178196 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5554006650444410708, guid: b9919ff3188d6b342a60d7c2bd3a353e, type: 3}
@@ -145,6 +156,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlackForeground
       objectReference: {fileID: 0}
+    - target: {fileID: 326681027174920882, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 861034649}
     - target: {fileID: 557604748314277964, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -321,6 +336,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -314
       objectReference: {fileID: 0}
+    - target: {fileID: 7094886583222770163, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 861034649}
     - target: {fileID: 7633518468295096342, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -357,7 +376,11 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: -8.381149
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4f66e636aa3c157428707ff9a4dcac84, type: 3}
 --- !u!114 &1032239173 stripped
 MonoBehaviour:
@@ -491,7 +514,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6188889159327603266, guid: bd5d176546053ed4696eb31a968de62c, type: 3}
+      propertyPath: PreloadSamples
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: bd5d176546053ed4696eb31a968de62c, type: 3}
 --- !u!1001 &5195104635003648270
 PrefabInstance:
@@ -740,7 +768,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 143.85
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: b9919ff3188d6b342a60d7c2bd3a353e, type: 3}
 --- !u!1001 &9186007080905078817
 PrefabInstance:
@@ -957,5 +988,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 1e6e2d11732320345b9102ebb22fb4e7, type: 3}

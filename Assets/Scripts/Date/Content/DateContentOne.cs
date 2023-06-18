@@ -7,6 +7,9 @@ using TMPro;
 
 public class DateContentOne : Content
 {
+    [SerializeField]
+    private AudioManager sound;
+
     private Story story;
 
     [SerializeField]
@@ -58,6 +61,7 @@ public class DateContentOne : Content
 
     protected override void StartContent()
     {
+        sound.PlayDateMusic();
         MatchBubble.SetActive(false);
         ClientBubble.SetActive(false);
         NarratorBubble.SetActive(false);
