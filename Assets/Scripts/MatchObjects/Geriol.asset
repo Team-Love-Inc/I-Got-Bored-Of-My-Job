@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   matchName: Geriol Highleaf
-  age: 13
-  picture: {fileID: 21300000, guid: 5ecb150c233fedd41b12a289f68558bb, type: 3}
-  description: "Hello. I am a frog man looking for love. \n\nI have a big heart and
-    I do not want to be alone all my life.\n"
+  age: 20
+  picture: {fileID: 21300000, guid: 76ee85ed220194049aa2460c4cd71062, type: 3}
+  description: "I\u2019m a bit awkward, I guess\u2026? I like technology, tinkering
+    and computers!"
   summary: Why do you not date me?
   Likes: 0

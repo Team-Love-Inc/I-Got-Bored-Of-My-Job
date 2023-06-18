@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class DateContentTwo : Content
 {
-    protected override void StartContent()
-    {
+    [SerializeField]
+    private AudioManager sound;
 
-    }
-    public void BtnPressed()
+    protected override void StartContent() {}
+    public void MainMenu()
     {
-        Stop(2);
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
+        Stop(StageNames.INTERVIEW);
+    }
+
+    public void Quit()
+    {
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
+        Stop(StageNames.NONE);
     }
 }

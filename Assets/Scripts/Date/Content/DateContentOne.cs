@@ -7,6 +7,12 @@ using TMPro;
 
 public class DateContentOne : Content
 {
+    [SerializeField]
+    private GameObject SkipButtons;
+
+    [SerializeField]
+    private AudioManager sound;
+
     private Story story;
 
     [SerializeField]
@@ -36,18 +42,53 @@ public class DateContentOne : Content
     [SerializeField]
     private ProgressBar AbilityTimerBar;
 
-    private bool feedback = false;
     private string feedbackResult = "NEUTRAL";
+
+    [SerializeField]
+    private Animator ClientAnimator;
+    private int clientPreviousLoveValue = 50;
+
+    [SerializeField]
+    private Animator MatchAnimator;
+    private int matchPreviousLoveValue = 50;
+
+    private List<string> positiveEmotes = new List<string>() { "Happy", "Excited" };
+    private List<string> negativeEmotes = new List<string>() { "Angry", "Nervous", "Sad" };
+
+    [SerializeField]
+    private GameObject ClientBubble;
+    [SerializeField]
+    private GameObject MatchBubble;
+    [SerializeField]
+    private GameObject NarratorBubble;
 
     protected override void StartContent()
     {
+        if(Debug.isDebugBuild)
+        {
+            SkipButtons.SetActive(true);
+        }
+        else
+        {
+            SkipButtons.SetActive(false);
+        }
+        sound.PlayDateMusic();
+        sound.PlaySoundeffect(AudioManager.soundEffect.BackgroundDate);
+        MatchBubble.SetActive(false);
+        ClientBubble.SetActive(false);
+        NarratorBubble.SetActive(false);
         StoryCanvas.enabled = true;
         ChoiceAbility.SetActive(false);
         StartStory();
     }
-    public void BtnPressed()
+    public void Win()
     {
         Stop(1);
+    }
+
+    public void Lose()
+    {
+        Stop(2);
     }
 
     private void StartStory()
@@ -57,10 +98,26 @@ public class DateContentOne : Content
         story.BindExternalFunction("getFeedBack", getFeedBack);
         story.ObserveVariable("clientMood", (string varName, object newValue) => {
             ClientBar.setProgress((int)newValue);
+            if ((int)newValue >= clientPreviousLoveValue)
+            {
+                ClientAnimator.Play(positiveEmotes[Random.Range(0, positiveEmotes.Count)]);
+            } 
+            else
+            {
+                ClientAnimator.Play(negativeEmotes[Random.Range(0, negativeEmotes.Count)]);
+            }
         });
         story.ObserveVariable("matchMood", (string varName, object newValue) =>
         {
             MatchBar.setProgress((int)newValue);
+            if ((int)newValue >= matchPreviousLoveValue)
+            {
+                MatchAnimator.Play(positiveEmotes[Random.Range(0, positiveEmotes.Count)]);
+            }
+            else
+            {
+                MatchAnimator.Play(negativeEmotes[Random.Range(0, negativeEmotes.Count)]);
+            }
         });
         ClientBar.reset();
         MatchBar.reset();
@@ -70,6 +127,7 @@ public class DateContentOne : Content
 
     private void StartButton(Choice choice)
     {
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
         story.ChooseChoiceIndex(choice.index);
         foreach(var button in TempButtons)
         {
@@ -103,7 +161,6 @@ public class DateContentOne : Content
             var tags = story.currentTags;
             if (tags.Count == 0)
             {
-                NarrationSpeech.text = text.Trim();
                 continue;
             }
             foreach (var tag in tags)
@@ -147,12 +204,21 @@ public class DateContentOne : Content
                 switch(tag.Trim().ToLower())
                 {
                     case "match":
+                        MatchBubble.SetActive(true);
+                        ClientBubble.SetActive(false);
+                        NarratorBubble.SetActive(false);
                         MatchSpeech.text = text.Trim();
                         break;
                     case "client":
+                        MatchBubble.SetActive(false);
+                        ClientBubble.SetActive(true);
+                        NarratorBubble.SetActive(false);
                         ClientSpeech.text = text.Trim();
                         break;
                     case "narrator":
+                        MatchBubble.SetActive(false);
+                        ClientBubble.SetActive(false);
+                        NarratorBubble.SetActive(true);
                         NarrationSpeech.text = text.Trim();
                         break;
                     default:
@@ -168,7 +234,7 @@ public class DateContentOne : Content
             for (int i = 0; i < story.currentChoices.Count; i++)
             {
                 Choice choice = story.currentChoices[i];
-                Button button = conversation.CreateAndPlaceButton(choice.text.Trim(), canvas, new Vector3(0, -120, 0));
+                Button button = conversation.CreateAndPlaceButton(choice.text.Trim(), canvas, new Vector3(0, 50, 0));
                 button.onClick.AddListener(delegate
                 {
                     StartButton(choice);
@@ -178,9 +244,14 @@ public class DateContentOne : Content
         } 
         else if (!start)
         {
-            // No more conversation or choices. Story is over.
-            story.ResetState();
-            ContinueStory(canvas, true);
+            if((bool)story.variablesState["DateSuccess"])
+            {
+                Stop(1);
+            } 
+            else
+            {
+                Stop(2);
+            }
         }
     }
 
@@ -193,7 +264,8 @@ public class DateContentOne : Content
 
     public void buttonPressed(bool choice)
     {
-        if(choice)
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
+        if (choice)
         {
             feedbackResult = "YES";
         }

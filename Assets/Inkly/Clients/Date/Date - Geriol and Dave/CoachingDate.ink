@@ -7,8 +7,7 @@ INCLUDE End.ink
 VAR clientMood = 50
 VAR matchMood = 50
 
-// # N: Match = Dave
-// # N: Client = Geriol
+VAR DateSuccess = false
 
 // List representing the player choice.
 // Note that this kind of list (elements are not surrounded by '()' like for LIST INTRO in intro)
@@ -18,6 +17,7 @@ LIST FeedBack = NO, NEUTRAL, YES
 EXTERNAL getFeedBack()
 
 // Story start. Temporarly triggered by a button press from player.
+
 * [Start] -> IntroStart
 
 // Function to get feedback. Must be implement in unity.

@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: 94}
+  m_AnchoredPosition: {x: -4.5, y: 74.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5377093980895636393
@@ -66,9 +66,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Description
-
-'
+  m_text: "I\u2019m a bit awkward, I guess\u2026? I like technology, tinkering and
+    computers!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cad15a29516ec674cbd7ec6a26b4933c, type: 2}
   m_sharedMaterial: {fileID: -2975858788732835732, guid: cad15a29516ec674cbd7ec6a26b4933c, type: 2}
@@ -107,7 +106,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -70
+  m_lineSpacing: -34.9
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -154,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6363513114020829659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -172,7 +171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13, y: -60}
+  m_AnchoredPosition: {x: 13, y: -44.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2470323654091867953
@@ -244,7 +243,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: -70
+  m_lineSpacing: 11.81
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -340,7 +339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Name
+  m_text: 'Name: Geriol Highleaf'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cad15a29516ec674cbd7ec6a26b4933c, type: 2}
   m_sharedMaterial: {fileID: -2975858788732835732, guid: cad15a29516ec674cbd7ec6a26b4933c, type: 2}
@@ -475,7 +474,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Age
+  m_text: 'Age: 20'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cad15a29516ec674cbd7ec6a26b4933c, type: 2}
   m_sharedMaterial: {fileID: -2975858788732835732, guid: cad15a29516ec674cbd7ec6a26b4933c, type: 2}
@@ -582,7 +581,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 421, y: 56}
-  m_SizeDelta: {x: 380, y: 482.38}
+  m_SizeDelta: {x: 602.404, y: 790}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2028484959134003907
 CanvasRenderer:
@@ -612,7 +611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 589720098, guid: 26c8fd3f45a562e4eb3b6ed27145d3bc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a42161b4ecd89fd4fba0b9e7840ce94e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -647,7 +646,7 @@ RectTransform:
   m_GameObject: {fileID: 6407177897502870695}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7691, y: 1.7691, z: 1.7691}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8816642465636295809}
@@ -659,7 +658,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.6, y: 0}
+  m_AnchoredPosition: {x: -28, y: 18}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7306899062087354153
@@ -689,7 +688,7 @@ RectTransform:
   m_GameObject: {fileID: 7306899062087354153}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.616209, y: 2.616209, z: 2.616209}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1149069227515693112}
@@ -698,8 +697,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94, y: 155}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 181, y: 284}
+  m_SizeDelta: {x: 98.3301, y: 90.8001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3152262186189008080
 CanvasRenderer:

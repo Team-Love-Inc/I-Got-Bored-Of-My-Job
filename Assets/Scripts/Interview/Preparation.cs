@@ -9,6 +9,9 @@ using TMPro;
 public class Preparation : MonoBehaviour
 {
     [SerializeField]
+    private AudioManager sound;
+
+    [SerializeField]
     private Canvas PreparationCanvas = null;
 
     [SerializeField]
@@ -32,6 +35,12 @@ public class Preparation : MonoBehaviour
     public void Run(Story story)
     {
         QuestionsToAsk = new Queue<KeyValuePair<string, string>>();
+        foreach(var question in PickedQuestions)
+        {
+            question.text = "";
+        }
+        questionsAdded = 0;
+        questionSlot = 0;
         PreparationCanvas.gameObject.SetActive(true);
         StartInterview.gameObject.SetActive(false);
         Questions = InkReadUtility.GetGlobalTags(story, "Q");
@@ -69,14 +78,16 @@ public class Preparation : MonoBehaviour
 
     private void SaveQuestion(KeyValuePair<string, string> question, Button button)
     {
+        sound.PlaySoundeffect(AudioManager.soundEffect.InterviewSound);
         if (questionsAdded < totalNumberOfQuestions)
         {
             QuestionsToAsk.Enqueue(question);
             if(questionSlot < PickedQuestions.Count)
             {
-                PickedQuestions[questionSlot++].text = question.Value;
+                PickedQuestions[questionSlot].text = question.Value;
             }
-            questionsAdded++;
+            ++questionSlot;
+            ++questionsAdded;
             button.gameObject.SetActive(false);
         }
         if(questionsAdded == totalNumberOfQuestions)
@@ -85,10 +96,22 @@ public class Preparation : MonoBehaviour
         }
     }
 
+    private void ResetScene()
+    {
+        //for (var i = 0; i < QuestionButtons.Count; i++)
+        //{
+        //    QuestionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = "";
+        //    QuestionButtons[i].onClick = null;
+        //    QuestionButtons[i].gameObject.SetActive(true);
+        //}
+    }
+
     public bool CanInterviewStart()
     {
         if(questionsAdded == totalNumberOfQuestions)
         {
+            //ResetScene();
+            sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
             PreparationCanvas.gameObject.SetActive(false);
             return true;
         }

@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 4189187496462118125}
   - {fileID: 6301072161642187746}
+  - {fileID: 7365823999522903313}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,6 +51,99 @@ MonoBehaviour:
     m_keys: 
     m_values: []
   StartStage: 1
+--- !u!1 &4382887183853710361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7365823999522903313}
+  - component: {fileID: 124978247236123062}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7365823999522903313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382887183853710361}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1141.4554, y: 425.10925, z: -23.10022}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2612597003528357431}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &124978247236123062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382887183853710361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f8c71ba3a00fdf44ac2eca1a531cc1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IntroMusic:
+    Guid:
+      Data1: 627620353
+      Data2: 1183550609
+      Data3: -1861145451
+      Data4: -781585799
+    Path: event:/Intro Music
+  InterviewMusic:
+    Guid:
+      Data1: 196667459
+      Data2: 1200379418
+      Data3: 400748479
+      Data4: 117833067
+    Path: event:/Interview Music
+  DateMusic:
+    Guid:
+      Data1: 1337203890
+      Data2: 1209756407
+      Data3: -1807224169
+      Data4: -1337598114
+    Path: event:/Date Music
+  ButtonClick:
+    Guid:
+      Data1: -519325463
+      Data2: 1333180818
+      Data3: 1743139463
+      Data4: 1520091994
+    Path: event:/Button
+  InterviewSound:
+    Guid:
+      Data1: 1698371499
+      Data2: 1163595353
+      Data3: -974480756
+      Data4: -1873279970
+    Path: event:/InterviewSound
+  BackgroundDate:
+    Guid:
+      Data1: -980350314
+      Data2: 1313173359
+      Data3: 788673675
+      Data4: -2048330736
+    Path: event:/BackgroundDate
+  ChooseMatchSound:
+    Guid:
+      Data1: 86536956
+      Data2: 1336018932
+      Data3: -891165056
+      Data4: -1587074897
+    Path: event:/ChooseMatch
 --- !u!1 &6151309331760570626
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,14 +154,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4189187496462118125}
   - component: {fileID: 864165532364995573}
-  - component: {fileID: 3607901768725828512}
+  - component: {fileID: 8166234257895572815}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4189187496462118125
 Transform:
   m_ObjectHideFlags: 0
@@ -75,14 +169,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6151309331760570626}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.36223316, y: -1.1366143, z: -8.415417}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 503.1, y: 341, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2612597003528357431}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!20 &864165532364995573
 Camera:
   m_ObjectHideFlags: 0
@@ -108,7 +202,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 23
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -126,14 +220,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &3607901768725828512
-AudioListener:
+--- !u!114 &8166234257895572815
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6151309331760570626}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &8602730836827101399
 GameObject:
   m_ObjectHideFlags: 0

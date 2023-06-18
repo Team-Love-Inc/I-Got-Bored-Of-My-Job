@@ -1,8 +1,9 @@
 # Q: Work = Work
 # Q: Family = Family
 # Q: LivingSituation = Living situation
-# Q: Hobby = Hobby
+# Q: Hobby = Hobbies
 # Q: Friends = Friends
+# Q: Love = Love
 
 # N: Player = Juliet
 # N: Client = Geriol
@@ -11,187 +12,345 @@
 
 === Work ===
 #Player
-So how’s your work situation? What you do?
+So what do you do in your day-to-day life? What do you work as?
 #Client
-I <b>study computer</b> right now. Do some <b>computer work</b> on side.
+Well right now I'm <i>studying computer science</i>. I also do some work with computers on the side, creating websites mostly...
 #Player
-Computer? No explosions for you? Cool, cool, I don’t know computers at all! I can only plug in USB and it plays itself.
+ Computers?? Oh! Those square metal things!
 #Client
-What? No nothing like that. Computer and math fun, only myself, no people, comfort. Only frog in my community that do that. How do you get explosions with computer?
+You haven't seen a computer before?
 #Player
-I touch, sparky feeling and boom! You from closed off river community?
+I've seen them, but I don't use them often. I've tried using them. But if I do anything other than plugging in and out a USB it usually explodes on me!
 #Client
-That doesn’t sound possible…? Uhm, yes, closed off community from river. You really Succubus if no computer can do…?
+E-Explode??
 #Player
-Yup yup, just hard to get up on moon. I can do magic though!
+A little sparkle then fire! Never happened to you?
 #Client
-shiver <b>Scary stuff, magic…</b> Me hear stories as child. 
+No never.
 #Player
-Magic better in reality than story! What you hear?
+Huh, lucky guy. So you've worked with computers for a long time then?
 #Client
-Turning people into small frogs.
+Not really. Where I'm from there isn't much electrical technology. I was mostly the only one tinkering with that.
+#Client
+I've always liked math and detailed work, so working with computers just came natural for me once I found out about them. 
+#Client
+Both through their code and that's inside them.
+#Client
+Otherwise back home, we are like 20 years behind in technology from the rest of the world.
 #Player
-Not really. Other things but not like that. Lets back on track.
+Wow, that's pretty cool! 
+#Client
+So... A succubus. How's the moon...? I've heard you only use magic...
+#Player
+Magic is still a big thing up there, yeah. Everyone is as traditional and stubborn as old farts. 
+#Player
+Technology is pretty frowned upon and hard to get. We're like 30 plus years behind.
+#Client
+<i>Magic...</i>
+#Player
+You don't like it?
+#Client
+<i>No... not really</i>. I think it's too dangerous for people to learn. I've heard stories of people using other peoples bodies for powerful spells! 
+#Client
+Also like turning people into stuff of chaos...
+#Player
+Well, that's still kind of the case. Not turning people into things. That's just silly! 
+#Player
+Maybe we just borrow like a fingernail or something for, like, levitation spells.
+#Client
+That sounds painful and unethical!
+#Player
+It grows out again! We ain't shy of sharing for others needs. But I can see your point. 
+#Player
+I would love for us to just get some more technology up there. It's so booooring! I want to watch my shows without being sneaky about it.
+#Client
+Well technology is growing very rapidly right now so maybe it will happen soon?
+#Player
+Oh boy that would be the best! But we got off track here! Studying and working with computers. Check! Alright next question.
+
 #End
-Likes computers, think magic is scary
+Likes computers, think magic is scary.
 
 
 -> END
 
 === Family ===
 #Player
-Do you have any family? Siblings? Parents?
+So what about your family? What do you have? Any siblings in there also?
 #Client
-Yes, back in river community. <b>Parents and two siblings</b>. Good family. Also community very close.
+I have a <i>mom, dad, and five siblings</i>.
 #Player
-In what way?
+Do they live here in the city?
 #Client
-Everyone know eachother. Help out and do things together. Like one big sandwich spread family.
+No they are still home. I come from one of those river communities far far away from here. 
 #Player
-But now alone? Family no move with you up here?
+River community?
 #Client
-No, were no university for computer. <b>Underwater</b>, you know. So I go alone to big city. Also my community rarely goes outside. Like the river and the lifestyle. Me always <b>good with math and trinkets</b> even if other didn’t. Me a oddball, but they support me still. even if no understand me. Always felt like a little <b>outcast</b>. So me only.
-#Player
-Oooh, brave! Hard being alone in new place. In common here.
+It's a kind of closed off place along a long stretch of a river. We are all kind of one big family there. 
 #Client
-You too…?
+We live both along the shore and under the water depending on the family. Everyone knows everyone and help each other when needed.
 #Player
-A little bit. Me not appreciated and fitting in. Wanted to do my thing and need to be here. Your situation will help.
+So how did they respond to you moving out here?
 #Client
-How?
-#Player
-Me want to write top romance novel. Not looked positive on moon. Need inspiration. You will give inspiration.
+Well, they knew I wanted to study here and we didn't have a university out there for what I wanted to do. 
 #Client
-That why this is free?
+Though they tried to convince me not to, they eventually supported me.
 #Player
-Kind of. I need something more than inspiration. I need some love energy.
+Ever felt like an outcast there?
 #Client
-Geriol:　huh?
-#Player
-I’m a kind of vegetarian succi. I no eat bad energy. I eat love. Lack of it on moon. Positive things are hard to make = people lazy and eat bad energy.
+Sometimes... I wasn't really bullied or anything, just never understood. 
 #Client
-It hurt?
-#Player
-Maybe tingle? No permanent damage. <em>I hope</em>.
+I was the only one tinkering with things from the “outside”. 
 #Client
-But free with money?
+Most people at home stayed within the community and worked on the land and water.
 #Player
-Yes!
+Sounds like a tough case, moving away all by yourself to a completely new way of living.
 #Client
-Then I guess okay. Me <b>desperate for anything</b>.
+It's been... Well it's still an adjustment. Even after two years... <i>I prefer to stay inside.</i> Can I ask about you? I-if it's okay...
 #Player
-Even better! Desperation! Good romance premise.
+About what?
+#Client
+Well you are also here from a place very different from home. How'd you adjust to it?
+#Player
+Hmm... I dunno! I just live how I do! Opening this office of love!
+#Client
+But couldn't you do it at home? Where it's more... safe?
+#Player
+Oh, well, over there there ain't much romance nor deep love between people, which won't help me with what I need.
+#Client
+What do you even need? Since you do this for free.
+#Player
+Well now you put me on the spot a bit, but I'll tell you! You see, I want to write a novel. A romance novel! 
+#Client
+A romance?
+#Player
+The greatest one there ever was, will be and ever gonna be! Back home there isn't much appreciation for it, but I will show them what is what!
+#Client
+So you need inspiration or something?
+#Player
+Bingo! Well something else also...
+#Client
+What?
+#Player
+I just need a liiiittle bit of love energy after my services are done.
+#Client
+What?
+#Player
+Us succubus usually live on... other more nasty stuff or energy. 
+#Player
+But we can also live on positive feelings, and isn't love the most positive one out there? Harder to get but better the taste!
+#Client
+So what? After you help me you'll... take what we feel?
+#Player
+Just a little! Gotta eat also!
+#Client
+Well... If it's still free with money I guess... I can pay with that? Feeling desperate enough for any type of help. 
+#Client
+As long as it doesn't damage something permanently.
+#Player
+... Probably not. Moving on to the next question!
+
 #End
-Two siblings, likes the inside.
+Five siblings, likes the inside.
 
 -> END
 
 === LivingSituation ===
 #Player
-Where do you live?
+So how are your living situation? Where do you live?
 #Client
-Live in <b>Student house</b>. Small room, many share the house.
+Is that important to know?
 #Player
-Share house? What mean?
+Well it could. Like, how you would take someone home and such.
 #Client
-All use same kitchen. Same washer. Some same bathroom. I got lucky with own bathroom. Little expensive though.
+Uhm... Well, I live in a <i>student house</i>.
 #Player
-With money? Oh, never know what money use. How get money?
+What's that?
 #Client
-<b>Student loans</b>. And some <b>coding jobs</b> on side from what I learn. Make websites.
+I share a house with other people who study in school just like I do. Currently we are around eight people.
 #Player
-What website used for?
+Sounds very inconvenient. 
 #Client
-To show info about company.
+Yeah... Rent is pretty high and I only get a small room. We all share everything, the kitchen, washing room, and bathrooms. Luckily, my room got its own bathroom.
 #Player
-Can you make one for me!? I need! Need clients for energy and inspiration! Only fliers, no website.
+And you pay with... money? How do you get it?
 #Client
-Maybe…? What would you do with more clients?
+Most of my income comes from state <i>student loans</i>. Money you borrow while studying and then have to pay back later. 
+#Client
+I also get extra income from making websites for people. 
 #Player
-Nothing bad. Just watch them interact with matchup, take some notes, help matchup go good. And a small nibble to eat after. No money needed, no harm done!
+On the computer? What are these websites used for?
 #Client
-And… date need money?
+Usually for a company or a product webpage. To show who they are or what they can do in a comprehensive manner.
 #Player
-… Probably not, I’ll solve!
+Dude! Can you make one for me?! That would really help me find more clients, right??
 #Client
-But if you help with dates, date need money, you don’t take money payment, how you date pay?
+ I-I guess... Maybe it would help more if you aren't in a creepy alleyway?
 #Player
-<em>jazzhands</em> Magic.
+I've been chased away from every other place by an “worker of the law” though... This office is my longest lasting one. Ugh...
 #Client
-<em>shudder</em> R-Right… 
+Maybe you should get a permit for this operation?
+#Player
+Nah it's all good. It's easy to move if they find me. I only need to be able to tell people where I am!
+#Client
+Hmm... Maybe we can discuss this job later?
+#Player
+Sure thing!
+#Client
+Would you even be able to pay for it?
+#Player
+... Next set of questions, customer!
 
 #End
-Is a student, has loads of loans
+Lives in student home, has loads of loans.
 
 -> END
 
 === Hobby ===
 #Player
-What do you do for fun? Any hobbies and such?
+So what do you do for fun, fun, fun? Got any fun hobbies?
 #Client
-Learn computer language, swim, <b>learn of history</b>.
+Well, learning computer languages, <i>swimming</i>, and <i>learning history</i>.
 #Player
-Oh, history! What learn history?
+... That's fun?
 #Client
-Uhm, moon made by demils from crater in ground. Much rare metal. Never same since. Made war for metal happen…
+I would say so, yes.
 #Player
-Oh. … Well, we needed to leave. Uh, sorry…?
+Hmm... Well let's focus on the history bit! What kind of history are you into?
 #Client
-Far in past. History. Still little tense. <b>Don’t like politics</b>. Why leave?
+Uhm, well... It's a little awkward but I'm actually into the context and creation behind the Demil moon. 
+#Client
+How it actually got created, the crater it left behind and the war and conflict for the metal that got discovered in it. 
+#Client
+Do... you know any personal details about it? Since you come from there, I mean.
 #Player
-Demil want use magic. No one else want use magic. We have own country. Everyone else freeze us out cause use magic. So we take metal, make moon, and leave to use magic freely.
+Oh. ... Well, we needed to leave to do our own thing, I think?
 #Client
-All for magic? Weird… Can’t see why…
+Nothing else?
 #Player
-Magic convenient! We do magic easily. Learn to eat without food thanks to magic, too! No water need. No food need. Live on moon good. 
-#Client
-Huh. 
+I never listened well during those lessons. 
 #Player
-You swim. Go beach often?
+But I think it was because us Demils still wanted to use magic freely for everything while the rest of the world wanted to switch to relying on technology.
 #Client
-<b>No beach</b>. Just river or pool. Sea water salt, no good on skin.
+That's as far as I understand it too.
 #Player
-River folk skin different?
+Is this a popular topic to talk about down here?
 #Client
-Yes. Need lotion to stay on land. Need loads water too. Water and land folk not often mix… Also reason I’m here to find someone.
+Mostly only if you want to argue about what was right or wrong about it all. I just like to know the facts.
+#Player
+So maybe not bring it up so much?
+#Client
+I think so.
+#Player
+Right. So... Swimming! On the beach?
+#Client
+<i>Not on the beach</i>. I'm more for the river. My skin isn't a big fan of salt water. I have to lotion my body regularly while I'm in the city here. 
+#Client
+It would get really dry really fast otherwise.
+#Player
+Hmm... That might not be a “first date” conversation, then... Try to leave out some details?
+#Client
+I... If you say so?
+#Player
+Sweet! One step closer for your life to be filled with love! Next question.
 
 #End
-Likes history, swims.
+Likes history, swims, no beach.
 
 -> END
 
 === Friends ===
 #Player
-What kind of friend groups do you surround yourself in?
+So what kind of friends do you surround yourself with?
 #Client
-No really friends. <b>Mostly by myself</b>.
+I-I don't... I don't really have that many... I'm usually by myself.
 #Player
-Why so?
+How come?
 #Client
-I try. But scary outside and me awkward. Very different here than river. I try in university but no one seem to want to keep a talk with me.
+That's... pretty private I feel.
 #Player
-Now I think you paranoid.
+Well I need to know stuff if I'm to help you. No judgments here!
 #Client
-I know they look me weird. “River boy who <b>eat flies</b>” they think, I know. 
+Well... I'm trying but... It's so scary trying to meet and talk to people... 
+#Client
+I wasn't very sociable back home but I could still go out and be with people and friends. Here <i>I just feel like such an outsider...</i>
+#Player
+Now I think you are a little tiny bit paranoid.
+#Client
+I know they all look at me weird. I'm probably just “The river boy who <i>eats flies</i>” for them.
 #Player
 Eat flies?
 #Client
-Very delicious. Very big part in river society. But here its euw for people. So people no like me. Me try not to be river-ish. Hard but try. 
-#Player
-Can’t be that bad no? You just need friends who think you okay.
+Back home it's a common delicacy. But outside river communities, it's not very nice to eat I guess... 
 #Client
-You no understand. I tried. But it hard and I’m not good at talk. Best with computers. But I have urge for something new in life before too late.
+Also there is a lot of cultural stuff making it harder for me. I'm trying but still...
 #Player
-Same thing with love I take it?
+Well maybe you can't be friends with everyone, you just need to try and find those few who think you are cool!
 #Client
-Love, friends, anything I can take I’ll take.
+You don't understand. I've tried... But it never works out. I feel like it's best to just stay home with my computer... But I feel like I need something...
 #Player
-Maybe set into one thing you know first?
+Love and friends I take it?
 #Client
-No, anything. I’m open for it. Just need help.
+Love, friends, anything, really.
 #Player
-Then I shall do my best. Ooga booga.
+Maybe you should focus on one area before spreading out that far on what you'd want?
+#Client
+No, anything. I'm open to it. I just need help to meet someone.
+#Player
+Well, desperation will make one productive I guess! Then it's good you found me! Next question!
+
 #End
-Has no friends and likes flies
+Has no friends and likes flies.
 
 -> END
+
+=== Love ===
+#Player 
+So here comes the tough question. What's your experience with love? Any earlier relationships?
+#Client 
+Uhm... <i>I think so</i>.
+#Player
+Think?
+#Client 
+Well... When I was 13 there was a girl back home that I really liked that I think liked me back.
+#Player 
+Yeah?
+#Client 
+And we looked at eachother alot and smiled. Then we started to talk and hangout.
+#Player 
+Yeah, yeah?
+#Client 
+Then one day she took my hand and...
+#Player 
+And!
+#Client 
+She kissed me on the cheek!
+#Player 
+Oh wow! What happened then? Did you two have a secret passionate romance of youth where both sides of the family didn't approve of this union of love?!
+#Client 
+N-No... After that she didn't really talk to me a lot and we stopped hanging out and such.
+#Player 
+... That's it?
+#Client 
+Yeah.
+#Player 
+Huh... I don't know what to call that.
+#Client 
+I haven't figured that out either.
+#Player 
+And no other experiences than that?
+#Client 
+No not really.
+#Player 
+Hmm... Which means you are an unspoiled pure canvas for me to work with! 
+#Player
+Oh what a chance! Your loveless life, empty of passion and intrigue and filled with the void of mundane is the perfect start of this romance story!
+#Client 
+T-Thank you?
+#Player 
+I should be the one to thank you, Geriol. Next question then!
+
+#End
+Has some love experience.
+
+->END

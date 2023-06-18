@@ -1,19 +1,15 @@
-
-// Intro page. Here we can find all intro stories and their branches.
-
 // List containing all possible stories. 
-// We can set each element to false in order to know when we cannot choose new intros.
 LIST INTRO = (introArrive), (introSorry), (introWeather)
 
-// Example variable that can be used to have some memory of previous choice.
-// If complete memory is required, each choice should be a unique branch.
 VAR OverExcited = false
+VAR Match = "Dave"
+VAR Client = "Geriol"
 
 // Functional knot to pick intro. Call when a new intro is needed.
 // If all intros are used, the story ends.
 === pickIntro ===
 {LIST_COUNT(INTRO) == 0: 
-    #Client#pause-2,5
+    #Client#pause-5
     Oh I just remember, my stove is on at home. cya.
     -> END
 }
@@ -35,59 +31,63 @@ VAR OverExcited = false
 // Entry knot for intro, only happens once.
 // Call from main.
 === IntroStart ===
-#Narrator#pause-2,5
-The date comes up to Geriol.
-#Match#pause-2,5
-Hello! Sorry I’m late, are you Geriol? //Dave
-#Client#pause-2
- Ah! Y-yes that is I, Me, that person… Sorry what was your name again? //Geriol
-#Match#pause-2,5
- No problem, I’m Dave. Nice to meet you. //Dave
-#Client#pause-2
- Nice to meet you too. I’m Geriol. Again… //Geriol
-
+#Match#pause-5
+ Hello! Sorry for being late. Are you Geriol? //Dave
+#Client#pause-5
+ Ah! Y-Yes that is I, me, that person... Sorry, what was your name again? //Geriol
+#Match#pause-5
+ Nothing to apologise for, I'm Dave. It's nice to meet you. //Dave
+#Client#pause-5
+ Nice to meet you too. I'm Geriol. Again... //Geriol
 -> pickIntro
 
 // Ending knot for intro, call at the end to check mood and start middle story.
 === IntroEnd ===
 ~ temp cm = checkMood(clientMood, 50)
 ~ temp mm = checkMood(matchMood, 50)
+{clientMood} {matchMood}
 {
  - cm && mm: -> MiddleStart                                         // If client and match mood is good.
  - !cm && !mm:                                                      // If client and match mood is bad
-    #Match#pause-2,5
-     This is akward dont you think? //Dave
-    #Client#pause-2,5
-     Yes, I agree bye. //Geriol
+    #Match#pause-5
+     This... Could have gone better.  //Dave
+    #Client#pause-5
+     I'm sorry... Maybe it's best if we cut it off here, then. //Geriol
+    #Match#pause-5
+     Yeah, that would be best. Thank you for your time.  //Dave
+    #Client#pause-5
+     Thank you to you too. //Geriol
  - !cm:                                                             // If client mood is bad.
-    #Client#pause-2,5
-     hey this was great but I have to run //Geriol
+    #Client#pause-5
+     Uhm... I think I just got a call from Juliet, she says she n-needs me. //Geriol
+    #Match#pause-5
+     Oh, alright. Then don't let me keep you.  //Dave
+     #Client#pause-5
+     Yeah, sure, bye. //Geriol
  - !mm:                                                             // If match mood is bad.
-    #Match#pause-2,5
-     oh someone is calling, brb (runs away) //Dave
+    #Match#pause-5
+     Sorry, I... Just got a text from my boss, saying I'm needed at work. //Dave
+     #Client#pause-5
+     Oh... Okay. Then I'll see you later? //Geriol
+     #Match#pause-5
+     Maybe. //Dave
 }
 -> END
-        
-////////// Start of the weather intro conversation ////////// 
 
-// Knot representing the weather intro exchange.
-// This is an example of how a story can be written. 
-// I chose to use tunnels, where it goes down but then up in the story.
-// Can also just have branching, when we care about previous choices.
 === IntroArrive ===
-#EnableFeedBack-2,5                                                     // Use this tag to tell unity to record player input.
-#Client#pause-2,5
- Did you get here okay? Live close-by? //Geriol
+#EnableFeedBack-5     
+#Client#pause-5
+ Did you get here okay? Do you live close-by? //Geriol
 
 #DisableFeedBack
 ~getFeedBack()
 {FeedBack:
    - NO:
-     #Client#pause-2,5
+     #Client#pause-5
       Never mind, that might not be important. //Geriol
      ~changeMood(clientMood, -5)                               // Decrease client mood after we tell it that it should not talk about the weather.
      ~changeMood(matchMood, 5)                                 // Increase match mood, it doesn't like to talk about weather..
-     -> pickIntro()                                             // Here, we told the client no right away. Story could now lead to another intro
+     -> pickIntro                                             // Here, we told the client no right away. Story could now lead to another intro
    - NEUTRAL:
       -> IntroArriveNeutral1 ->    
    - YES:
@@ -101,84 +101,84 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 // Knot for neutral choice 1. The story here could be kept the same as the Yes choice. 
 // If it is different, then further knots should be called from here instead of going back up with '->->'
 === IntroArriveNeutral1  ===
-#Match#pause-2,5
- Uhm, yeah! I got here good. I live 2 buses away. Some accident on road make me late. //Dave
-#Client#pause-2,5
- I see. Good you make it here. //Geriol
-#Match#pause-2,5
+~changeMood(clientMood, 2)                               // Decrease client mood after we tell it that it should not talk about the weather.
+~changeMood(matchMood, 2)   
+#Match#pause-5
+Hey, I made it here fine. I live just two bus rides away, but there was an accident on the road, so I got delayed. //Dave
+#Client#pause-5
+Oh, I see. It's good that you still made it here. //Geriol
+#Match#pause-5
  What about you? //Dave
-#Client#pause-2,5
- I just walked. Or more like ran. Thought I would be late. Alarm broke so woke up late. //Geriol
-
-#EnableFeedBack-2,5
-#Match#pause-2,5
- Sounds very stressful though if you had to run far. //Dave
+~changeMood(clientMood, 3)
+#Client#pause-5
+ I just walked. Or more like ran, I thought I would be late. My alarm broke so I woke up late. //Geriol
+#EnableFeedBack-5
+#Match#pause-5
+ Sounds very stressful if you had to run here. //Dave
 #DisableFeedBack
-~changeMood(clientMood, 5)
-~changeMood(matchMood, 5)
+~changeMood(matchMood, 3)
 
 ~getFeedBack()
 {FeedBack:
    - NO:                                        
       ~OverExcited = false
-      -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
-                                                                // instead of going back to a new intro.
+      -> No1->
    - NEUTRAL:
-      ->->  
+      ->IntroArriveNeutral2->  
    - YES:
-      ->->
+      ->IntroArriveYes1->
 }
 ->->
 = No1
-#Client#pause-2,5
- Not so far. You? //Geriol
-#Match#pause-2,5
- Already told you I took the bus. //Dave
-#Client#pause-2,5
- Right right… //Geriol
-#Match#pause-2,5
- … //Dave
-#Client#pause-2,5
- Wanna go and sit down somewhere? //Geriol
-#Match#pause-2,5
- Sure sure. //Dave
+#Client#pause-5
+ Not so far away. You? //Geriol
+#Match#pause-5
+ Already told you I took the bus here. //Dave
 ~changeMood(clientMood, -2)
-~changeMood(matchMood, -5)
+#Client#pause-5
+ Right right... //Geriol
+#Match#pause-5
+ ... //Dave
+ ~changeMood(matchMood, -5)
+#Client#pause-5
+ Wanna go sit somewhere in the park? //Geriol
+#Match#pause-5
+ Sure, sure. //Dave
 ->->
 
 // Knot for yes choice 1.
 === IntroArriveYes1 ===
-#Match#pause-2,5
- Uhm, yeah! I got here good. I live 2 buses away. Some accident on road make me late. //Dave
-#Client#pause-2,5
- Oh my! What kind? //Geriol
-#Match#pause-2,5
- Not sure. Not look out window. Reading book. I’m very distracted. //Dave
-#Client#pause-2,5
- …What? sorry, I got distracted. Something about a book? //Fly flies by? Geriol
-#Match#pause-2,5
- Hehe, that’s cool. Yeah, I read a very nerdy book and missed the accident. //Dave
-#Client#pause-2,5
- What’s it about? //Geriol
-#Match#pause-2,5
- Stuff about gravitational stuff and such. Mostly focused on celestial stuff. //Dave
-#Client#pause-2,5
- Oh! Sounds very interesting. Me probably like. //Geriol
-#Match#pause-2,5
- Not sure. Very mathy. //Dave
-#Client#pause-2,5
- I’m very into math. //Geriol
-#Match#pause-2,5
- Really so? Want me show? Here. //Dave
-#Client#pause-2,5
- Cool. Me remember to get it. //Geriol
+#Match#pause-5
+Uh yeah! I made it here easily. I live just two buses away. I was only late because there was an accident on the road, which caused some traffic jams. //Dave
+#Client#pause-5
+ Oh my! What kind of accident? //Geriol
+#Match#pause-5
+ I'm not sure... I didn't pay attention. I was engrossed in a book. //Dave
+#Client#pause-5
+Oh, what book is it? //Geriol
+~changeMood(clientMood, 5)
+#Match#pause-5
+It's mostly about the stars, the possibilities beyond it and how we might be able to see it eventually. It also included some interesting calculations... //Dave
+#Client#pause-5
+ That sound just up my alley! I'd probably like it as well, with the stars and such. //Geriol
+~changeMood(matchMood, 5)
+#Match#pause-5
+It focused more on calculations rather than the stars themselves, though. //Dave
+#Client#pause-5
+ Even better then. I like math a lot, haha. //Geriol
+#Match#pause-5
+Oh, really? Well, let me jot down the book's name for you so you can borrow it from somewhere. The title is quite lengthy. Feel free to share your thoughts with me later.
+~changeMood(clientMood, 5)
+//Dave
+#Client#pause-5
+ Thank you! I'll be sure to check it out. //Geriol
+~changeMood(matchMood, 5)
 
-#EnableFeedBack-2,5
-#Match#pause-2,5
- Sound good good.
+#EnableFeedBack-5
+#Match#pause-5
+ Haha, great.
 ~OverExcited = true
-~changeMood(clientMood, 10)
-~changeMood(matchMood, 10)
+
 #DisableFeedBack
 ~getFeedBack()
 {FeedBack:
@@ -186,18 +186,19 @@ Hello! Sorry I’m late, are you Geriol? //Dave
       ~OverExcited = false
       -> No1->
    - NEUTRAL:
-      ->->  
+      ->IntroArriveNeutral2->  
    - YES:
-      ->->
+      ->IntroArriveYes2->
 }
 ->->
 = No1
-#Client#pause-2,5
- Maybe show me more of the book later? //Geriol
-#Match#pause-2,5
- Yeah if interested. //Dave
+#Client#pause-5
+ Maybe you can show me more of the book later? //Geriol
+#Match#pause-5
+ Yeah if you are interested. //Dave
 ~changeMood(clientMood, -5)
 ~changeMood(matchMood, -5)
+
 ->->
 
 ///// Start of choice 2
@@ -205,106 +206,114 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 // Knot for neutral choice 2.
 // Uses the OverExcited variable. This enables selective memory from previous events.
 === IntroArriveNeutral2 ===
-#Client#pause-2,5
+#Client#pause-5
 {
 - OverExcited:
- Maybe show me more of the book later? //Geriol
-#Match#pause-2,5
- Yeah if interested. //Dave
-#Client#pause-2,5
- Yeah me pretty interested. Got a big shelf of books! //Geriol
-#Match#pause-2,5
- Read a lot? //Dave
-#Client#pause-2,5
- …Eventually of course. Just haven’t had the time yet. //Geriol
-#Match#pause-2,5
- Have you made the time for it? //Dave
-#Client#pause-2,5
- …I gotta MAKE my own time for it? Haven’t thought about it like that? //Geriol
-#Match#pause-2,5
- Easier to not think like that. I try to forget that kind of thinking so I don’t feel as guilty. //Dave
-#Client#pause-2,5
- I already feel the guilt eating at me. Or it’s just hunger. You hungry? //Geriol
-#Match#pause-2,5
- I could eat something.  //Dave
-~changeMood(clientMood, 5)
+Maybe you can show me more of the book later? //Geriol
+#Match#pause-5
+Sure, if you are interested. //Dave
 ~changeMood(matchMood, 5)
+#Client#pause-5
+Yeah, I'm pretty interested. I got a large collection of books myself! //Geriol
+#Match#pause-5
+Do you read a lot? //Dave
+~changeMood(clientMood, 5)
+#Client#pause-5
+...I will eventually, of course. Just haven't had the time yet. //Geriol
+#Match#pause-5
+Have you made the time for it? //Dave
+#Client#pause-5
+...I gotta MAKE my own time for it??? //Geriol
+#Match#pause-5
+ Yeah, it's difficult to read otherwise. Personally, I have managed to avoid thinking I'm putting off something else to make time for books so I don't feel as guilty when I read. //Dave
+#Client#pause-5
+I already feel the guilt eating at me. Or it's just hunger. Are you hungry? //Geriol
+#Match#pause-5
+I could eat something. //Dave
+
+                   	// If overExicted is true
+
+
  - !OverExcited:
-#Client#pause-2,5
- No I just had to get around a few corners and then I got here. Just had to stuff some breakfast in mouth. //Geriol
-#Match#pause-2,5
- Think you still got some on. //Dave
-#Client#pause-2,5
- Oh no! Gone now? //Geriol
-#Match#pause-2,5
- …Sure! //Dave
-#Client#pause-2,5
- Hehe… //Geriol
-~OverExcited = false
-~changeMood(clientMood, 3)
+#Client#pause-5
+ No, I just had to get around a few corners to get here. Just had to shove breakfast in my mouth. //Geriol
 ~changeMood(matchMood, 3)
+#Match#pause-5
+ I think you still got some on. //Dave
+#Client#pause-5
+Oh no! Is it gone now? //Geriol
+~changeMood(clientMood, 3)
+#Match#pause-5
+ ...Sure! //Dave
+#Client#pause-5
+ Hehe... //Geriol
+~OverExcited = false
 }
 ->->
 
 // Knot for yes choice 2.
 === IntroArriveYes2 === 
-#Client#pause-2,5
+#Client#pause-5
 {
 - OverExcited: 
- Maybe show me more of the book later? //Geriol
-#Match#pause-2,5
- Yeah if interested. //Dave
-#Client#pause-2,5
- But 2 buses away? pretty far away. Glad you could bother to come and meet. //Geriol
-#Match#pause-2,5
- Of course. Gotta make some effort to get anything. //Dave
-#Client#pause-2,5
- A lot of effort from me. Just walk a little. //Geriol
-#Match#pause-2,5
- It’s still more than I do on daily basis. //Dave
-#Client#pause-2,5
- Haha, hard to believe. //Geriol
-#Match#pause-2,5
- You should have seen me walking from bus. Sweaty. //Dave
-#Client#pause-2,5
- Me think we both have hard to do these stuff. //Geriol
-#Match#pause-2,5
- Pretty much so. //Dave
-#Client#pause-2,5
- Easier to just stay at home. //Geriol
-#Match#pause-2,5
+ Maybe tell me more about  the book later? //Geriol
+#Match#pause-5
+ Sure, if you are interested. //Dave
+#Client#pause-5
+ But two buses away? Sounds far away. Glad you wanted to come and meet up though. //Geriol
+#Match#pause-5
+ Of course. You have to make some effort in life to get anything. //Dave
+ ~changeMood(matchMood, 10)
+#Client#pause-5
+Oh yes! A looooot of effort for me. Just had to walk a short distance. //Geriol
+#Match#pause-5
+ Still more than I do on a daily basis. //Dave
+#Client#pause-5
+ Haha, I find that hard to believe. //Geriol
+#Match#pause-5
+You should have seen me walking here from the bus. I feel the sweat building up here. //Dave
+~changeMood(matchMood, 10)
+#Client#pause-5
+It's just a hot day. But I think we both have some difficulties doing these kinds of things. Meeting new people. //Geriol
+#Match#pause-5
+ Pretty much //Dave
+~changeMood(clientMood, 10)
+#Client#pause-5
+ It's just easier to stay at home. //Geriol
+#Match#pause-5
  Exactly! Big brains here. //Dave
-#Client#pause-2,5
+ ~changeMood(clientMood, 10)
+#Client#pause-5
  Definitely. //Geriol
- ~changeMood(matchMood, 20)
- ~changeMood(clientMood, 20) 
+
 
 - !OverExcited:
 
-#Client#pause-2,5
- Not very long. Me live like 10 minutes ago. //Geriol
-#Match#pause-2,5
- Sound very convenient. //Dave
-#Client#pause-2,5
- Yes but the area around place very sketchy. //Geriol
-#Match#pause-2,5
- You live very central, to be expected? //Dave
-#Client#pause-2,5
- It is expected for me next time. Just took very cheap. You live in sketchy place? //Geriol
-#Match#pause-2,5
- Would not say sketchy, but we got our funny characters around. //Dave
-#Client#pause-2,5
- What they do? //Geriol
-#Match#pause-2,5
- Like to dress like a mermaid and pretend swim on the street. //Dave
-#Client#pause-2,5
- Sounds scary. //Geriol
-#Match#pause-2,5
- Think they just like to do those stuff. Haven’t talked with them but I try to say hello and they sound happy. //Dave
-
-~OverExcited = false
+#Client#pause-5
+It wasn't too far. I live only 10 minutes away. //Geriol
+#Match#pause-5
+Sounds very convenient. //Dave
+#Client#pause-5
+Yeah, but my area is pretty sketchy though. //Geriol
+#Match#pause-5
+You live very central so that is to be expected? //Dave
 ~changeMood(matchMood, 10)
-~changeMood(clientMood, 10) 
+#Client#pause-5
+True, but I hope my next home won't be as bad. This one was pretty cheap so I just took it. Do you live in a sketchy place? //Geriol
+#Match#pause-5
+I wouldn't say “not” sketchy, but there are some funny characters around. //Dave
+~changeMood(clientMood, 5)
+#Client#pause-5
+What kind? //Geriol
+#Match#pause-5
+Well there's a man that likes to dress up like a mermaid and pretend to swim on the streets. //Dave
+#Client#pause-5
+That just sounds scary. //Geriol
+~changeMood(clientMood, 5)
+#Match#pause-5
+He is a very nice and okay guy though. I just think he likes to do that kind of stuff. For some reason. //Dave
+~OverExcited = false
+
 }
 ->->
 
@@ -312,19 +321,19 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 
 // Unimplemented 
 === IntroSorry ===
-#EnableFeedBack-2,5                                                    // Use this tag to tell unity to record player input. Can be a timer also.    
-#Client#pause-2,5
- …Sorry, haven’t been many dates. Not sure how to start. //Geriol
+#EnableFeedBack-5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#Client#pause-5
+ ...Sorry, I haven't been on many so called dates. Not sure how to start. //Geriol
 
 #DisableFeedBack
 ~getFeedBack()
 {FeedBack:
    - NO:
-     #Client#pause-2,5
+     #Client#pause-5
       Never mind, that might not be important. //Geriol
      ~changeMood(clientMood, -5)                               // Decrease client mood after we tell it that it should not talk about the weather.
      ~changeMood(matchMood, 5)                                 // Increase match mood, it doesn't like to talk about weather..
-     -> pickIntro()                                             // Here, we told the client no right away. Story could now lead to another intro
+     -> pickIntro                                             // Here, we told the client no right away. Story could now lead to another intro
    - NEUTRAL:
       -> IntroSorryNeutral1 ->    
    - YES:
@@ -338,180 +347,192 @@ Hello! Sorry I’m late, are you Geriol? //Dave
 // Knot for neutral choice 1. The story here could be kept the same as the Yes choice. 
 // If it is different, then further knots should be called from here instead of going back up with '->->'
 === IntroSorryNeutral1  ===
-#Match#pause-2,5
- No worry, I no know much either. What usually talk about? //Dave
-#Client#pause-2,5
- Don’t know… Don’t want bore you either. Talk weather? //Geriol
-#Match#pause-2,5
- I suppose…? Uh, nice weather. Warm, comfy. //Dave
-#Client#pause-2,5
-laugh Yes, warm, comfy. Good description. Photosynthesis is cool. //Geriol
-
-#EnableFeedBack-2,5
-#Match#pause-2,5
- It is. Not many clouds either. //Dave
+#Match#pause-5
+ No worries, I don't know much either. What do people usually talk about? //Dave
 ~changeMood(clientMood, 5)
+#Client#pause-5
+I don't know... Don't wanna bore you either. Maybe... Talk about the weather? //Geriol
+#Match#pause-5
+ I suppose...? Uh, it's nice weather today. Warm, comfy. //Dave
 ~changeMood(matchMood, 5)
+#Client#pause-5
+ Haha. Yes, warm and comfy. A good description. Photosynthesis is cool. //Geriol
+#EnableFeedBack-5
+#Match#pause-5
+ It is. There aren't many clouds hanging around either. //Dave
+
+
 #DisableFeedBack
 ~getFeedBack()
 {FeedBack:
    - NO:                                        
       ~OverExcited = false
-      -> No1->
+      -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
+                                                                // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->IntroSorryNeutral2->  
    - YES:
-      ->->
+      ->IntroSorryYes2->
 }
 ->->
 = No1
-#Client#pause-2,5
- Nice with nice weather. Makes picnic easier. No umbrella. //Geriol
-#Match#pause-2,5
- No wind either. Comfy. //Dave
-#Client#pause-2,5
- Yes. Let’s find place. //Geriol
-~changeMood(clientMood, 5)
+#Client#pause-5
+ Nice with some nice weather. Makes everything easy peasy.  //Geriol
+ ~changeMood(clientMood, 5)
+#Match#pause-5
+ There's no wind either. Very comfy. //Dave
+#Client#pause-5
+Yeah. Well, let's find someplace nice here. //Geriol
 ~changeMood(matchMood, 5)
+
+
 ->->
 
 // Knot for yes choice 1.
 === IntroSorryYes1 ===
-#Match#pause-2,5
- No worry, I no know much either. What usually talk about? //Dave
-#Client#pause-2,5
- We say name, that’s start! //Geriol
-#Match#pause-2,5
-Laugh, Yes, that start. I don’t go outside meeting other much. //Dave
-#Client#pause-2,5
- Me neither! Stay home most time. Like being alone. But alone become lonely. //Geriol
+#Match#pause-5
+ No worries, I don't know that much either. What would people usually talk about? //Dave
+~changeMood(clientMood, 5)
+#Client#pause-5
+ We can introduce ourselves? That's a start! //Geriol
+#Match#pause-5
+ Haha. Yes, that's a start. I don't really go outside to meet people that much. //Dave
+ ~changeMood(clientMood, 5)
+#Client#pause-5
+ Me neither! I stay home most of the time. I like being alone, but sometimes too much is too much. You know? //Geriol
 
-#EnableFeedBack-2,5
-#Match#pause-2,5
- Know what mean. Same here. Glad you feel same! //Dave
-~OverExcited = true
-~changeMood(clientMood, 10)
 ~changeMood(matchMood, 5)
+#EnableFeedBack-5
+#Match#pause-5
+I understand what you're saying, I feel the same way. It's cool we both share that! //Dave
+~OverExcited = true
+
 #DisableFeedBack
 ~getFeedBack()
 {FeedBack:
    - NO:                                        
       ~OverExcited = false
-      -> No1->
+      -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
+                                                                // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->IntroSorryNeutral2->  
    - YES:
-      ->->
+      ->IntroSorryYes2->
 }
 ->->
 = No1
-#Client#pause-2,5
- Glad you think so. I’m sure we be fine. Seem to have much talk about already without knowing what do. //Geriol
-#Match#pause-2,5
+#Client#pause-5
+ Glad you think so. I'm sure we will be fine. We seem to have a lot to talk about already, even without knowing what to do. //Geriol
+~changeMood(clientMood, 8)
+#Match#pause-5
  Yes. No pressure. //Dave
-#Client#pause-2,5
- Yes. //Geriol
-~changeMood(clientMood, 10)
-~changeMood(matchMood, 10)
+~changeMood(matchMood, 8)
+#Client#pause-5
+ Yeah. //Geriol
 ->->
+
 
 ///// Start of choice 2
 
 // Knot for neutral choice 2.
 // Uses the OverExcited variable. This enables selective memory from previous events.
 === IntroSorryNeutral2 ===
-#Client#pause-2,5
 {
 - OverExcited:
- I glad you feel same too. Thank you for agreeing date. Or, no need to be date. Want someone spend time with. //Geriol
-#Match#pause-2,5
- Oh, your friend no say that. No worry, we go what feels best then. I don’t mind either. Nice to have friend too. //Dave
-#Client#pause-2,5
- Yes, let’s see. So far, you’re very nice. //Geriol
-#Match#pause-2,5
- You’re very nice too. Even if it be both our first date time. //Dave
+#Client#pause-5
+I'm glad you feel the same. Thank you for agreeing on this date. Or like just wanting to hangout. //Geriol
 ~changeMood(clientMood, 5)
+#Match#pause-5
+No worry or pressure, we'll just go for what feels best here. I don't mind calling this a hangout. It's nice to have friends too. //Dave
 ~changeMood(matchMood, 10)
+#Client#pause-5
+ Yes, We'll see. So far you're very nice. //Geriol
+#Match#pause-5
+ You're very nice too. So no complaining so far.  //Dave
 
  - !OverExcited:
-#Client#pause-2,5
- You know most photosynthesis happen out in sea under water? //Geriol
-#Match#pause-2,5
- Yes, it cool. People only see tree and flowers. Below water important too. //Dave
-#Client#pause-2,5
- Yes, water nice. Flowers nicer to see though. //Geriol
-#Match#pause-2,5
- You like flowers?
-#Client#pause-2,5
- No clear opinion. Nice to see, smell lots, but unfamiliar. //Geriol
-#Match#pause-2,5
- Ecosystem is very cool. Flowers important for many things. //Dave
- 
-~OverExcited = false
-~changeMood(clientMood, 3)
+#Client#pause-5
+ You know most photosynthesis happens out in the sea underwater? //Geriol
 ~changeMood(matchMood, 3)
+#Match#pause-5
+ Yes, it's cool. People usually only think of it connected to trees and flowers. But it's very important below water too. //Dave
+#Client#pause-5
+Though, it's easier and nicer to see flowers. //Geriol
+~changeMood(clientMood, 3)
+#Match#pause-5
+ Do you like flowers?
+#Client#pause-5
+Eeh... Don't really know any flower names. But they are nice to see and smell.  //Geriol
+#Match#pause-5
+ The ecosystem sure is pretty cool and pretty. //Dave
+
+~OverExcited = false
+
 }
 ->->
 
 // Knot for yes choice 2.
 === IntroSorryYes2 === 
-#Client#pause-2,5
+#Client#pause-5
 {
 - OverExcited: 
- Me too! Usually stay inside at computer. Easiest to interact with. //Geriol
-#Match#pause-2,5
- Know what mean. Computers easier than people. Computers have algorithm to follow. People be emotional and unpredictable. //Dave
-#Client#pause-2,5
- Me don’t want others to dislike me either. Hard to know what say and do. Haven’t been on surface very long… //Geriol
-#Match#pause-2,5
- Oh? Where from?  //Dave
-#Client#pause-2,5
- River community. //Geriol
-#Match#pause-2,5
+ Me too! I usually just stay inside at the computer. Easiest to hangout with. //Geriol
+#Match#pause-5
+I know what you mean. Computers are way easier to understand than people. Easier algorithms to follow while people are like, you know. //Dave
+~changeMood(matchMood, 10)
+#Client#pause-5
+I don't want other people to dislike me either. It's hard to know what to say and do sometimes. It feels like I haven't been here long enough to know that stuff... //Geriol
+~changeMood(clientMood, 10)
+#Match#pause-5
+ Oh? Where are you from?  //Dave
+~changeMood(matchMood, 10)
+#Client#pause-5
+ A river community. //Geriol
+#Match#pause-5
  Oooh, cool. //Dave
-~changeMood(matchMood, 20)
-~changeMood(clientMood, 20) 
+~changeMood(clientMood, 10)
+
         
 - !OverExcited:
-
-#Client#pause-2,5
- Look, cloud like dog! //Geriol
-#Match#pause-2,5
- Yes, I see. Oh, kite flying there. Didn’t think it blew enough to fly. //Dave
-#Client#pause-2,5
- No feel much wind. Could be magic too… //Geriol
-#Match#pause-2,5
- Could be magic, yes. At least kid having fun. Haven’t played kite a long time. //Dave
-#Client#pause-2,5
- Me neither… Play together sometime when windy? //Geriol
-#Match#pause-2,5
- Could try. Not sure me good, though. //Dave
-#Client#pause-2,5
- I haven’t been out much, not sure good either. We’ll see! //Geriol
+#Client#pause-5
+ Look, clouds looking like dogs! //Geriol
+#Match#pause-5
+ Yes, I see. Oh, and some kites flying. I didn't think it was windy enough for that. //Dave
+#Client#pause-5
+Same. Could be wind magic... //Geriol
+~changeMood(matchMood, 10)
+#Match#pause-5
+At least the kid is having fun. Haven't flown a kite in a long time. //Dave
+#Client#pause-5
+ Me neither... Wanna play together sometime when it's actually windy? //Geriol
+#Match#pause-5
+ We could try. Not sure if I'm good at it, though. //Dave
+~changeMood(clientMood, 8)
+#Client#pause-5
+ Well, same here. So we'll see! //Geriol
 
 ~OverExcited = false
-~changeMood(matchMood, 10)
-~changeMood(clientMood, 10) 
+
 }
 ->->
+ -> pickIntro
 
 ////////// Start of yet anothter intro conversation ////////// 
 
-// Unimplemented
 === IntroWeather ===
-#EnableFeedBack-2,5
-#Client#pause-2,5
- …THE WEATHER SURE IS NICE SO FAR! Didn’t look at today's forecast how it will stay. Have you? //Geriol
+#EnableFeedBack-5                                                     // Use this tag to tell unity to record player input. Can be a timer also.    
+#Client#pause-5
+ ...THE WEATHER SURE IS NICE SO FAR! Didn't look at today's forecast at how it will stay though. Have you? //Geriol
 
 #DisableFeedBack
 ~getFeedBack()
 {FeedBack:
    - NO:
-     #Client#pause-2,5
+     #Client#pause-5
       Never mind, that might not be important. //Geriol
      ~changeMood(clientMood, -5)                               // Decrease client mood after we tell it that it should not talk about the weather.
      ~changeMood(matchMood, 5)                                 // Increase match mood, it doesn't like to talk about weather..
-     -> pickIntro()                                             // Here, we told the client no right away. Story could now lead to another intro
+     -> pickIntro                                             // Here, we told the client no right away. Story could now lead to another intro
    - NEUTRAL:
       -> IntroWeatherNeutral1 ->    
    - YES:
@@ -525,25 +546,27 @@ Laugh, Yes, that start. I don’t go outside meeting other much. //Dave
 // Knot for neutral choice 1. The story here could be kept the same as the Yes choice. 
 // If it is different, then further knots should be called from here instead of going back up with '->->'
 === IntroWeatherNeutral1  ===
-#Match#pause-2,5
- Ah, no, haven’t seen forecast. Don’t know how weather be. //Dave
-#Client#pause-2,5
- Then, we can only hope it stays nice. At least no wind to blow things away. //Geriol
-#Match#pause-2,5
- Yes, much wind would be annoying. //Dave
-#Client#pause-2,5
- Would be hard taking out blanket with wind. But wind good for kite fly. //Geriol
-#Match#pause-2,5
- True. Oh, kite fly there. See? How fly with no wind…? //Dave
-#Client#pause-2,5
- Magic wind…? No too important. //Geriol
-
-#EnableFeedBack-2,5
-#Match#pause-2,5
- True. //Dave
-#DisableFeedBack
+#Match#pause-5
+Ah, no, I haven't seen the forecast. I don't know what the weather will be like. //Dave
+~changeMood(matchMood, -5)
+#Client#pause-5
+ Then, we can only hope it stays nice. At least there is no wind to blow things or me away. //Geriol
+~changeMood(matchMood, -5)
+#Match#pause-5
+ Yes,that would've been annoying, and impressive of the wind. //Dave
+#Client#pause-5
+Good for kite flying though. //Geriol
 ~changeMood(clientMood, -10)
-~changeMood(matchMood, -10)
+#Match#pause-5
+True. Oh, kites are flying over there. See? How can they fly without wind...? //Dave
+#Client#pause-5
+Wind magic...? Not important. //Geriol
+
+#EnableFeedBack-5
+#Match#pause-5
+True. //Dave
+#DisableFeedBack
+
 
 ~getFeedBack()
 {FeedBack:
@@ -552,65 +575,69 @@ Laugh, Yes, that start. I don’t go outside meeting other much. //Dave
       -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
                                                                 // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->IntroWeatherNeutral2->  
    - YES:
-      ->->
+      ->IntroWeatherYes2->
 }
 ->->
 = No1
-#Client#pause-2,5
- As long kid having fun and kite no crash on us, it fine. //Geriol
-#Match#pause-2,5
- Yes. Seems having fun. //Dave
-#Client#pause-2,5
- Seems like, yes. Let’s find somewhere to sit. //Geriol
+#Client#pause-5
+ As long as kids have fun and no kites flies into our eyes, I find it okay. //Geriol
 ~changeMood(clientMood, -5)
+#Match#pause-5
+ Yes. They seem to have fun. //Dave
+#Client#pause-5
+ Seems like it. But let's go somewhere else, maybe just in case. //Geriol
 ~changeMood(matchMood, -5)
 ->->
 
 // Knot for yes choice 1.
 === IntroWeatherYes1 ===
-#Match#pause-2,5
- Ah, no, haven’t seen forecast. Don’t know how weather be. //Dave
-#Client#pause-2,5
- Oh, too bad. If enough clouds, could have mix of sun and cloud and have nice shade time while picnic. That nice, yes? //Geriol
-#Match#pause-2,5
- Uh, yes. That nice.  //Dave
-#Client#pause-2,5
- Not much wind either. Could have brought umbrella for shade, too. Would be good if it rain to have umbrella.  //Geriol
-#Match#pause-2,5
- R-Right… //Dave
-#Client#pause-2,5
- Not I think it rain, want sun, but can never be too prepared! You like the sun? //Geriol
+#Match#pause-5
+ Ah, no, I haven't seen the forecast. I don't know how the weather will be. //Dave
+ ~changeMood(matchMood, -10)
+#Client#pause-5
+ Oh, okay... Would be nice if it stayed nice for the whole day. //Geriol
+#Match#pause-5
+ Uh, yes. That would be nice.  //Dave
+~changeMood(matchMood, -5)
+#Client#pause-5
+ Not so much wind either. Could have brought an umbrella for shade though... Would've been good in case it rains later in the day.  //Geriol
+#Match#pause-5
+ R-Right... //Dave
+~changeMood(clientMood, -10)
+#Client#pause-5
+ Not that I think it will rain but you can never be too prepared! Do you like the sun? //Geriol
 
-#EnableFeedBack-2,5
-#Match#pause-2,5
+#EnableFeedBack-5
+#Match#pause-5
  Sun is important to survive, so.. Yes? //Dave
 ~OverExcited = true
-~changeMood(clientMood, -10)
-~changeMood(matchMood, -10)
+
 #DisableFeedBack
+
 ~getFeedBack()
 {FeedBack:
    - NO:                                        
       ~OverExcited = false
-      -> No1->
+      -> No1->                                             // Here, we told the client no in the second round. Here it also could go to a "no" option
+                                                                // instead of going back to a new intro.
    - NEUTRAL:
-      ->->  
+      ->IntroWeatherNeutral2->  
    - YES:
-      ->->
+      ->IntroWeatherYes2->
 }
 ->->
 = No1
-#Client#pause-2,5
- Right, yes. Sun is important. Gives life to things. Glad we have… sun. //Geriol
-#Match#pause-2,5
- Yes. Glad for sun. //Dave
-#Client#pause-2,5
- Let’s find someplace to sit. //Geriol
-
-~changeMood(clientMood, -5)
+#Client#pause-5
+ Right, yes. The sun is important. Grants life onto things. Glad we have... sun. //Geriol
+ ~changeMood(clientMood, -5)
+#Match#pause-5
+ Yes, same. Very glad for the sun. //Dave
+#Client#pause-5
+... Let's find someplace to settle down. //Geriol
 ~changeMood(matchMood, -5)
+
 ->->
 
 ///// Start of choice 2
@@ -618,84 +645,88 @@ Laugh, Yes, that start. I don’t go outside meeting other much. //Dave
 // Knot for neutral choice 2.
 // Uses the OverExcited variable. This enables selective memory from previous events.
 === IntroWeatherNeutral2 ===
-#Client#pause-2,5
+#Client#pause-5
 {
 - OverExcited:
-#Client#pause-2,5
- Yes, sun important for life.  //Geriol
-#Match#pause-2,5
- … //Dave
-#Client#pause-2,5
- … //Geriol
-#Client#pause-2,5
- I’m sorry I didn’t know what to say… //Geriol
-#Match#pause-2,5
- I… noticed. I’m nervous too. //Dave
-#Client#pause-2,5
- R-Right. "clear throat" With weather nice, let’s find someplace? To sit? //Geriol
-#Match#pause-2,5
- Yes. Let’s sit where the sun has dried the grass nicely, yes? //Dave
-#Client#pause-2,5
- Where sun dried grass nicely. //Geriol
+#Client#pause-5
+ Yes, the sun is very important for life.  //Geriol
+#Match#pause-5
+ ... //Dave
+#Client#pause-5
+ ... //Geriol
+#Client#pause-5
+ I'm sorry. I didn't know what to say or talk about... //Geriol
+ ~changeMood(clientMood, 3)
+#Match#pause-5
+ I... noticed. I'm nervous too so don't worry. //Dave
+#Client#pause-5
+ R-Right. Hrrm... With nice weather, let's find someplace? To sit? Or stand? Or whatever. //Geriol
+#Match#pause-5
+ Sure. It's a big park so somewhere gotta be nice for us, yes?//Dave
+ ~changeMood(matchMood, 3)
+#Client#pause-5
+A nice place for two! Let's go. //Geriol
 
-~changeMood(clientMood, 3)
-~changeMood(matchMood, 3)
 
+                       // If overExicted is true
  - !OverExcited:
-#Client#pause-2,5
- Kites nice. Not had one for many years. //Geriol
-#Match#pause-2,5
- Me neither. No remember how long kite last played. //Dave
-#Client#pause-2,5
- Same… Glad kid can play kite. //Geriol
-#Match#pause-2,5
- Yes. Not kite weather but good weather picnic. //Dave
-#Client#pause-2,5
+#Client#pause-5
+ Kites are nice. I haven't used one for a long time.  //Geriol
+#Match#pause-5
+ Me neither. I don't remember when I did it. //Dave
+#Client#pause-5
+ Same... Glad kids can fly kites. //Geriol
+~changeMood(clientMood, 5)
+#Match#pause-5
+ Yes. Not really a kite weather but good enough to just be outside. //Dave
+~changeMood(matchMood, 5)
+#Client#pause-5
  It is. //Geriol
  
 ~OverExcited = false
-~changeMood(clientMood, 5)
-~changeMood(matchMood, 5)
+
 }
 ->->
 
 // Knot for yes choice 2.
 === IntroWeatherYes2 === 
-#Client#pause-2,5
+#Client#pause-5
 {
 - OverExcited: 
- Sun very important! If rain come, we go someplace else. Still picnic okay if in tunnel, yes? Don’t want to have bad time cause weather! //Geriol
-#Match#pause-2,5
- Ah, yes… That would be shame… //Dave
-#Client#pause-2,5
- Like sound and smell of rain. Remind me of home. All wet and soft. But you fur have. Like rain? //Geriol
-#Match#pause-2,5
- Like rain against my window…? Not on fur. //Dave
-#Client#pause-2,5
- I see! I got mucus skin. Mucus skin like rain much much. Don’t like sun. Easy get dry. It why I have many water bottles! Don’t want dry during date! -nervous laughter- //Geriol
-#Match#pause-2,5
- I… see… //Dave
-
+ The sun is very important! If it would rain we could go somewhere else. Still okay even if we would be in a tunnel, yes? //Geriol
+#Client#pause-5
+Don't want us to have a bad time because of the weather. //Geriol
+#Match#pause-5
+ Ah, yes... That would be a shame. But a tunnel... //Dave
+#Client#pause-5
+But boy I like the sound and smell of rain! Reminds me of home. But hmm... Maybe not for you with your fur?  //Geriol
+#Match#pause-5
+I like the rain against my window...? But not on my fur. //Dave
 ~changeMood(matchMood, -10)
-~changeMood(clientMood, -15) 
-        
+#Client#pause-5
+ I see! I got mucus on my skin and it loves the rain. Not a big fan of the sun, it dries up easily. So rehydrating is the key to my fair complexion! //Geriol
+ #Client#pause-5
+ Heh... Haha... //Geriol
+#Match#pause-5
+ I... see... //Dave
+~changeMood(clientMood, -15)
+
 - !OverExcited:
 
-#Client#pause-2,5
- You like flying kite? //Geriol
-#Match#pause-2,5
- Haven’t flown kite in long time. Many years since. //Dave
-#Client#pause-2,5
- Me neither. Mostly stay inside. //Geriol
-#Match#pause-2,5
-Same. Outside mean people. Inside is nicer than outside. //Dave
-#Client#pause-2,5
-Agree, inside better. Also cooler. Sun good, but very warm. //Geriol
-#Match#pause-2,5
-Yes, very warm. Very bright. //Dave
-
-~changeMood(matchMood, -5)
-~changeMood(clientMood, -5) 
+#Client#pause-5
+ You like flying kites? //Geriol
+#Match#pause-5
+ Haven't flown a kite in a long time. //Dave
+#Client#pause-5
+ Me neither. I mostly just stay inside. //Geriol
+~changeMood(matchMood, 5)
+#Match#pause-5
+Same here. There are a lot of weird people outside of home. The inside only has... very few dangerous things compared to that. //Dave
+#Client#pause-5
+I agree. Also inside is a lot cooler. The sun is good, but sometimes a little ridiculous with how warm it can get. //Geriol
+#Match#pause-5
+Yeah, it's heating up here. And what feels like 10% brighter than usual. If that is true then it would be very worrisome.  //Dave
+~changeMood(clientMood, 5)
 
 ~OverExcited = false
 }

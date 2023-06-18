@@ -6,6 +6,12 @@ using Ink.Runtime;
 
 public class InterviewContentTwo : Content
 {
+    [SerializeField]
+    private AudioManager sound;
+
+    [SerializeField]
+    private GameObject DebugButton;
+
     private Story story;
 
     [SerializeField]
@@ -21,6 +27,11 @@ public class InterviewContentTwo : Content
 
     protected override void StartContent()
     {
+        sound.PlayInterviewMusic();
+        if (Debug.isDebugBuild)
+        {
+            DebugButton.SetActive(true);
+        }
         GlobalDataSingleton.setClient(client);
         story = conversation.StartStory();
         preparation.Run(story);
