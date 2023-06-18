@@ -116,6 +116,34 @@ MonoBehaviour:
       Data3: -1807224169
       Data4: -1337598114
     Path: event:/Date Music
+  ButtonClick:
+    Guid:
+      Data1: -519325463
+      Data2: 1333180818
+      Data3: 1743139463
+      Data4: 1520091994
+    Path: event:/Button
+  InterviewSound:
+    Guid:
+      Data1: 1698371499
+      Data2: 1163595353
+      Data3: -974480756
+      Data4: -1873279970
+    Path: event:/InterviewSound
+  BackgroundDate:
+    Guid:
+      Data1: -980350314
+      Data2: 1313173359
+      Data3: 788673675
+      Data4: -2048330736
+    Path: event:/BackgroundDate
+  ChooseMatchSound:
+    Guid:
+      Data1: 86536956
+      Data2: 1336018932
+      Data3: -891165056
+      Data4: -1587074897
+    Path: event:/ChooseMatch
 --- !u!1 &6151309331760570626
 GameObject:
   m_ObjectHideFlags: 0

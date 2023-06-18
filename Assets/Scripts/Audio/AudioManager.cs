@@ -10,6 +10,19 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private EventReference InterviewMusic;
     [SerializeField] private EventReference DateMusic;
 
+    [SerializeField] private EventReference ButtonClick;
+    [SerializeField] private EventReference InterviewSound;
+    [SerializeField] private EventReference BackgroundDate;
+    [SerializeField] private EventReference ChooseMatchSound;
+
+    public enum soundEffect
+    {
+        ButtonClick,
+        InterviewSound,
+        BackgroundDate,
+        ChooseMatchSound,
+    }
+
     private Dictionary<string, EventInstance> instances = new Dictionary<string, EventInstance>();
 
     public static AudioManager instance { get; private set; }
@@ -31,7 +44,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Play(string name, EventReference reference)
+    private void PlayMusic(string name, EventReference reference)
     {
         StopMusic();
         if (!instances.ContainsKey(name))
@@ -43,16 +56,35 @@ public class AudioManager : MonoBehaviour
 
     public void PlayIntroMusic()
     {
-        Play("intro", IntroMusic);
+        PlayMusic("intro", IntroMusic);
     }
 
     public void PlayInterviewMusic()
     {
-        Play("interview", InterviewMusic);
+        PlayMusic("interview", InterviewMusic);
     }
 
     public void PlayDateMusic()
     {
-        Play("date", DateMusic);
+        PlayMusic("date", DateMusic);
+    }
+
+    public void PlaySoundeffect(soundEffect sound)
+    {
+        switch(sound)
+        {
+            case soundEffect.ButtonClick:
+                RuntimeManager.CreateInstance(ButtonClick).start();
+                break;
+            case soundEffect.InterviewSound:
+                RuntimeManager.CreateInstance(InterviewSound).start();
+                break;
+            case soundEffect.BackgroundDate:
+                RuntimeManager.CreateInstance(BackgroundDate).start();
+                break;
+            case soundEffect.ChooseMatchSound:
+                RuntimeManager.CreateInstance(ChooseMatchSound).start();
+                break;
+        }
     }
 }

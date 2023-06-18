@@ -106,6 +106,7 @@ public class InterviewContentOne : Content
 
     public void StartGame()
     {
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
         foreach(Transform child in MainMenu.transform)
         {
             if(child.TryGetComponent(out Image ImageObj))
@@ -290,12 +291,47 @@ public class InterviewContentOne : Content
             progress += Time.deltaTime * 0.5f;
             yield return null;
         }
+        ResetScene();
         Stop(1);
     }
 
+    private void ResetScene()
+    {
+        IntroDialougeOrder = 0;
+        IntroTextOrder = 0;
+        previousTextOrder = -1;
+        OfficeDialougeOrder = 0;
+
+        foreach (Transform child in MainMenu.transform)
+        {
+            if (child.TryGetComponent(out Image ImageObj))
+            {
+                ImageObj.CrossFadeAlpha(1f, 0f, false);
+                foreach (Transform GrandChild in child)
+                {
+                    if (GrandChild.TryGetComponent(out TextMeshProUGUI TextObj))
+                    {
+                        TextObj.CrossFadeAlpha(1f, 0f, false);
+                    }
+                }
+            }
+            else if (child.TryGetComponent(out TextMeshProUGUI TextObj))
+            {
+                TextObj.CrossFadeAlpha(1f, 0f, false);
+            }
+        }
+        foreach (var light in IntroLights)
+        {
+            light.gameObject.SetActive(false);
+        }
+
+        Juliet.position = new Vector3(Juliet.position.x, Juliet.position.y, Juliet.position.z + 3f);
+        OfficeBlackForeground.color = new Color(OfficeBlackForeground.color.r, OfficeBlackForeground.color.g, OfficeBlackForeground.color.b, 0f);
+    }
 
     public void Quit()
     {
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
         Stop(StageNames.NONE);
     }
 

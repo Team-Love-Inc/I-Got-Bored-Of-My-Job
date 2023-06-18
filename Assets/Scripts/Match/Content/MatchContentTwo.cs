@@ -1,8 +1,12 @@
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class MatchContentTwo : Content
 {
+    [SerializeField]
+    private AudioManager sound;
+
     public TextMeshProUGUI Npcname;
     public TextMeshProUGUI age;
     public TextMeshProUGUI desc;
@@ -19,11 +23,13 @@ public class MatchContentTwo : Content
 
     public void GoOnDate()
     {
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
         Stop(2);
     }
 
     public void GoBack()
     {
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
         Stop(0);
     }
 }

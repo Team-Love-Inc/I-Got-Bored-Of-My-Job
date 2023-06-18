@@ -397,7 +397,7 @@ Transform:
   - {fileID: 6220965454301654444}
   - {fileID: 950223235176607272}
   m_Father: {fileID: 1948899966922216872}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &509046693923230552
 GameObject:
@@ -2567,7 +2567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6424064620804693743
 Transform:
   m_ObjectHideFlags: 0
@@ -2598,6 +2598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5881547de91619e47b3d9a5b60eb6d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 0}
   DebugButton: {fileID: 7301404268220831726}
   conversation: {fileID: 9075419554655342007}
   client: {fileID: 11400000, guid: 562f619b799e97346b4a2769bf160c40, type: 2}
@@ -4999,7 +5000,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1948899966922216872}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -192.442, z: 0}
 --- !u!20 &8484914639911402151
 Camera:
@@ -6258,14 +6259,14 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8242201601193783179}
   - {fileID: 3343534750555735173}
   - {fileID: 5956848346693856614}
   - {fileID: 2545125109448137804}
-  - {fileID: 456133521692754512}
   - {fileID: 3640975312112875516}
   - {fileID: 712202632006246822}
   - {fileID: 7432962172019100101}
+  - {fileID: 8242201601193783179}
+  - {fileID: 456133521692754512}
   m_Father: {fileID: 6424064620804693743}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6755,7 +6756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1796227863647248859
 Transform:
   m_ObjectHideFlags: 0
@@ -6791,6 +6792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eed3bb8b6ae1b24ab0d319a1a4dd19f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 0}
   SkipButton: {fileID: 6994518034741590414}
   MainMenuCamera: {fileID: 3823190469342844347}
   MainMenu: {fileID: 5753713608812793967}
@@ -7584,7 +7586,7 @@ RectTransform:
   m_Children:
   - {fileID: 6814876436512728405}
   m_Father: {fileID: 1948899966922216872}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9095,6 +9097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3ddc9bbf4bfc446b6bea9dc07c519b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sound: {fileID: 0}
   PreparationCanvas: {fileID: 5644170054710063500}
   QuestionButtons:
   - {fileID: 9147658356732971197}
@@ -10854,7 +10857,7 @@ RectTransform:
   - {fileID: 291773481883857371}
   - {fileID: 3760746336290608900}
   m_Father: {fileID: 1948899966922216872}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -11251,7 +11254,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b795615c070424741b06eb6518a79587, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b795615c070424741b06eb6518a79587, type: 3}
       propertyPath: m_LocalScale.x
@@ -13114,7 +13117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5051123129756258528, guid: 32a2043ef07c28d488dd2ef80374e800, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5051123129756258528, guid: 32a2043ef07c28d488dd2ef80374e800, type: 3}
       propertyPath: m_AnchorMax.x
@@ -13949,7 +13952,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cf1b82eacfd00e54db62d1f2838aaa93, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: cf1b82eacfd00e54db62d1f2838aaa93, type: 3}
       propertyPath: m_LocalScale.x
@@ -14550,7 +14553,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 59863b0f41cf7404c9abe69dd857b900, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 59863b0f41cf7404c9abe69dd857b900, type: 3}
       propertyPath: m_LocalScale.x

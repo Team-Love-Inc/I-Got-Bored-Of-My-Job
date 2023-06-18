@@ -8,6 +8,9 @@ using TMPro;
 
 public class InterviewStory : MonoBehaviour
 {
+    [SerializeField]
+    private AudioManager sound;
+
     private static string PLAYER = "Player";
     private static string CLIENT = "Client";
 
@@ -49,7 +52,8 @@ public class InterviewStory : MonoBehaviour
     {
         TOPIC_ACTIVE,
         TOPIC_COMPLETE,
-        CHARACTER_SHEET_SHOWING
+        CHARACTER_SHEET_SHOWING,
+        COMPLETE
     }
     private Conversation state;
 
@@ -87,6 +91,10 @@ public class InterviewStory : MonoBehaviour
 
     public void ContinueStory()
     {
+        if(state == Conversation.COMPLETE)
+        {
+            return;
+        }
         bool getNameFromTag(string tag, string type)
         {
             if (tag.Trim().StartsWith(type))
@@ -148,7 +156,15 @@ public class InterviewStory : MonoBehaviour
         else
         {
             interviewDone();
+            ResetScene();
         }
+    }
+
+    private void ResetScene()
+    {
+        story.ResetState();
+        state = Conversation.COMPLETE;
+        StoryCanvas.gameObject.SetActive(false);
     }
 
     public void BackgroundClicked()
@@ -169,5 +185,4 @@ public class InterviewStory : MonoBehaviour
         }
         ContinueStory();
     }
-
 }

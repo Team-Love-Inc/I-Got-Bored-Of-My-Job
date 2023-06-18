@@ -8,6 +8,9 @@ using TMPro;
 public class DateContentOne : Content
 {
     [SerializeField]
+    private GameObject SkipButtons;
+
+    [SerializeField]
     private AudioManager sound;
 
     private Story story;
@@ -61,7 +64,16 @@ public class DateContentOne : Content
 
     protected override void StartContent()
     {
+        if(Debug.isDebugBuild)
+        {
+            SkipButtons.SetActive(true);
+        }
+        else
+        {
+            SkipButtons.SetActive(false);
+        }
         sound.PlayDateMusic();
+        sound.PlaySoundeffect(AudioManager.soundEffect.BackgroundDate);
         MatchBubble.SetActive(false);
         ClientBubble.SetActive(false);
         NarratorBubble.SetActive(false);
@@ -69,9 +81,14 @@ public class DateContentOne : Content
         ChoiceAbility.SetActive(false);
         StartStory();
     }
-    public void BtnPressed()
+    public void Win()
     {
         Stop(1);
+    }
+
+    public void Lose()
+    {
+        Stop(2);
     }
 
     private void StartStory()
@@ -110,6 +127,7 @@ public class DateContentOne : Content
 
     private void StartButton(Choice choice)
     {
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
         story.ChooseChoiceIndex(choice.index);
         foreach(var button in TempButtons)
         {
@@ -226,15 +244,14 @@ public class DateContentOne : Content
         } 
         else if (!start)
         {
-            // No more conversation or choices. Story is over.
             if((bool)story.variablesState["DateSuccess"])
             {
-                Debug.Log("Date success");
                 Stop(1);
             } else
             {
                 Stop(2);
             }
+            //story.ResetState();
         }
     }
 
@@ -247,7 +264,8 @@ public class DateContentOne : Content
 
     public void buttonPressed(bool choice)
     {
-        if(choice)
+        sound.PlaySoundeffect(AudioManager.soundEffect.ButtonClick);
+        if (choice)
         {
             feedbackResult = "YES";
         }
